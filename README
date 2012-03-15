@@ -1,1 +1,10 @@
-SimpleSample-chat_users-ios
+This sample demonstrates how to work with Chat (and Users) QuickBlox services.
+
+It allows to organize general chat.
+It shows how to:
+- Retrieve all users’ messages
+- Send own message
+
+Sample description - http://quickblox.com/samples/simplesample-chat_users-ios/
+
+Wiki docs - http://wiki.quickblox.com/SimpleSample-chat_users-ios
