@@ -19,6 +19,10 @@
 		8A78244E15061F6600036DEC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A78244D15061F6600036DEC /* QuartzCore.framework */; };
 		8A798A67150A754C00431A49 /* CustomTableViewCellCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A798A66150A754C00431A49 /* CustomTableViewCellCell.m */; };
 		8A7B71E4150795E3001C6FF5 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7B71E3150795E3001C6FF5 /* CustomTableViewCell.xib */; };
+		8A890B5F15139F4700C7252B /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A890B5E15139F4700C7252B /* Quickblox.framework */; };
+		8A890B6415139F6100C7252B /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A890B6315139F6100C7252B /* SplashController.m */; };
+		8A890B6615139F8B00C7252B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A890B6515139F8B00C7252B /* logo.png */; };
+		8A890B6815139F9400C7252B /* SplashController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A890B6715139F9400C7252B /* SplashController.xib */; };
 		8AB7E09C15067DEC009AFCD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E07C15067DEC009AFCD3 /* AppDelegate.m */; };
 		8AB7E09F15067DEC009AFCD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E08515067DEC009AFCD3 /* LoginViewController.m */; };
 		8AB7E0A015067DEC009AFCD3 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E08815067DEC009AFCD3 /* ChatViewController.m */; };
@@ -28,10 +32,9 @@
 		8AB7E0A515067DEC009AFCD3 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09215067DEC009AFCD3 /* pin.png */; };
 		8AB7E0A615067DEC009AFCD3 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09415067DEC009AFCD3 /* LoginViewController.xib */; };
 		8AB7E0A715067DEC009AFCD3 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09515067DEC009AFCD3 /* RegistrationViewController.xib */; };
-		8AB7E0A815067DEC009AFCD3 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09615067DEC009AFCD3 /* ViewController_iPhone.xib */; };
+		8AB7E0A815067DEC009AFCD3 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09615067DEC009AFCD3 /* ChatViewController.xib */; };
 		8AB7E0A915067DEC009AFCD3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09815067DEC009AFCD3 /* InfoPlist.strings */; };
 		8AB7E0AA15067DEC009AFCD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E09915067DEC009AFCD3 /* main.m */; };
-		FA1DE085150F8F3A00F5750A /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DE084150F8F3A00F5750A /* Quickblox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,11 @@
 		8A798A65150A754C00431A49 /* CustomTableViewCellCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCellCell.h; path = "SimpleSample-chat_users-ios/Classes/CustomTableViewCellCell.h"; sourceTree = "<group>"; };
 		8A798A66150A754C00431A49 /* CustomTableViewCellCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCellCell.m; path = "SimpleSample-chat_users-ios/Classes/CustomTableViewCellCell.m"; sourceTree = "<group>"; };
 		8A7B71E3150795E3001C6FF5 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		8A890B5E15139F4700C7252B /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
+		8A890B6215139F6100C7252B /* SplashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashController.h; sourceTree = "<group>"; };
+		8A890B6315139F6100C7252B /* SplashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashController.m; sourceTree = "<group>"; };
+		8A890B6515139F8B00C7252B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		8A890B6715139F9400C7252B /* SplashController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashController.xib; sourceTree = "<group>"; };
 		8AB7E07B15067DEC009AFCD3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "SimpleSample-chat_users-ios/AppDelegate.h"; sourceTree = "<group>"; };
 		8AB7E07C15067DEC009AFCD3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "SimpleSample-chat_users-ios/AppDelegate.m"; sourceTree = "<group>"; };
 		8AB7E08415067DEC009AFCD3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -63,12 +71,11 @@
 		8AB7E09215067DEC009AFCD3 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		8AB7E09415067DEC009AFCD3 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		8AB7E09515067DEC009AFCD3 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
-		8AB7E09615067DEC009AFCD3 /* ViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_iPhone.xib; sourceTree = "<group>"; };
+		8AB7E09615067DEC009AFCD3 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		8AB7E09815067DEC009AFCD3 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		8AB7E09915067DEC009AFCD3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8AB7E09A15067DEC009AFCD3 /* SimpleSample-chat_users-ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleSample-chat_users-ios-Info.plist"; sourceTree = "<group>"; };
 		8AB7E09B15067DEC009AFCD3 /* SimpleSample-chat_users-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SimpleSample-chat_users-ios-Prefix.pch"; sourceTree = "<group>"; };
-		FA1DE084150F8F3A00F5750A /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quickblox.framework; path = "../SDK-ios/Framework/build/Framework/Quickblox.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +93,7 @@
 				8A2F268114F7F1E900292876 /* SystemConfiguration.framework in Frameworks */,
 				8A2F267F14F7F1E400292876 /* CFNetwork.framework in Frameworks */,
 				8A2F265E14F7F0D300292876 /* Foundation.framework in Frameworks */,
-				FA1DE085150F8F3A00F5750A /* Quickblox.framework in Frameworks */,
+				8A890B5F15139F4700C7252B /* Quickblox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +126,8 @@
 		8A2F265A14F7F0D300292876 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A890B5E15139F4700C7252B /* Quickblox.framework */,
 				8A2F268614F7F1FF00292876 /* libz.dylib */,
-				FA1DE084150F8F3A00F5750A /* Quickblox.framework */,
 				8A78244D15061F6600036DEC /* QuartzCore.framework */,
 				8A2F268814F7F25B00292876 /* MapKit.framework */,
 				8A2F268414F7F1F900292876 /* CoreLocation.framework */,
@@ -143,9 +150,19 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		8A890B6115139F6100C7252B /* SplashController */ = {
+			isa = PBXGroup;
+			children = (
+				8A890B6215139F6100C7252B /* SplashController.h */,
+				8A890B6315139F6100C7252B /* SplashController.m */,
+			);
+			path = SplashController;
+			sourceTree = "<group>";
+		};
 		8AB7E08215067DEC009AFCD3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8A890B6115139F6100C7252B /* SplashController */,
 				8AB7E08315067DEC009AFCD3 /* LoginController */,
 				8AB7E08615067DEC009AFCD3 /* ChatViewController */,
 				8AB7E08A15067DEC009AFCD3 /* RegistrationController */,
@@ -188,6 +205,7 @@
 				8AB7E09315067DEC009AFCD3 /* xib files */,
 				8AB7E08F15067DEC009AFCD3 /* Default.png */,
 				8AB7E09015067DEC009AFCD3 /* icon.png */,
+				8A890B6515139F8B00C7252B /* logo.png */,
 				8AB7E09215067DEC009AFCD3 /* pin.png */,
 			);
 			name = Resources;
@@ -197,9 +215,10 @@
 		8AB7E09315067DEC009AFCD3 /* xib files */ = {
 			isa = PBXGroup;
 			children = (
+				8A890B6715139F9400C7252B /* SplashController.xib */,
 				8AB7E09415067DEC009AFCD3 /* LoginViewController.xib */,
 				8AB7E09515067DEC009AFCD3 /* RegistrationViewController.xib */,
-				8AB7E09615067DEC009AFCD3 /* ViewController_iPhone.xib */,
+				8AB7E09615067DEC009AFCD3 /* ChatViewController.xib */,
 				8A7B71E3150795E3001C6FF5 /* CustomTableViewCell.xib */,
 			);
 			path = "xib files";
@@ -272,9 +291,11 @@
 				8AB7E0A515067DEC009AFCD3 /* pin.png in Resources */,
 				8AB7E0A615067DEC009AFCD3 /* LoginViewController.xib in Resources */,
 				8AB7E0A715067DEC009AFCD3 /* RegistrationViewController.xib in Resources */,
-				8AB7E0A815067DEC009AFCD3 /* ViewController_iPhone.xib in Resources */,
+				8AB7E0A815067DEC009AFCD3 /* ChatViewController.xib in Resources */,
 				8AB7E0A915067DEC009AFCD3 /* InfoPlist.strings in Resources */,
 				8A7B71E4150795E3001C6FF5 /* CustomTableViewCell.xib in Resources */,
+				8A890B6615139F8B00C7252B /* logo.png in Resources */,
+				8A890B6815139F9400C7252B /* SplashController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +312,7 @@
 				8AB7E0A115067DEC009AFCD3 /* RegistrationViewController.m in Sources */,
 				8AB7E0AA15067DEC009AFCD3 /* main.m in Sources */,
 				8A798A67150A754C00431A49 /* CustomTableViewCellCell.m in Sources */,
+				8A890B6415139F6100C7252B /* SplashController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

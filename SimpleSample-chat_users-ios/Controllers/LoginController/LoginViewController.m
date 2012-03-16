@@ -72,11 +72,11 @@
 		if(res.success)
         {
             if([self respondsToSelector:@selector(presentingViewController)]){// iOS 5.0
-                [((ViewController *)[self presentingViewController]) setCurrentUser:[res user]];
+                [((ChatViewController *)[self presentingViewController]) setCurrentUser:[res user]];
             }
             else
             {
-                [((ViewController *)[self parentViewController]) setCurrentUser:[res user]];
+                [((ChatViewController *)[self parentViewController]) setCurrentUser:[res user]];
             }
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Authentification successful" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];

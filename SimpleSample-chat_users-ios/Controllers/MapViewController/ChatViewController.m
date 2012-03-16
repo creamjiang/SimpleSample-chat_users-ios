@@ -10,7 +10,7 @@
 #import "CustomTableViewCellCell.h"
 
 
-@implementation ViewController
+@implementation ChatViewController
 
 
 @synthesize loginController;

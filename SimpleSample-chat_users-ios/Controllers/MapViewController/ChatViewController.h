@@ -12,7 +12,7 @@
 
 @class MyCustomAnnotationView;
 
-@interface ViewController : UIViewController <ActionStatusDelegate, UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource> 
+@interface ChatViewController : UIViewController <ActionStatusDelegate, UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource> 
 {
 
     UIViewController *loginController;

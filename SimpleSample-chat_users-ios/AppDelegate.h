@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ViewController;
+@class ChatViewController;
+@class SplashController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, ActionStatusDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) ViewController *viewController;
+@property (nonatomic, retain) SplashController* splashController;
+@property (strong, nonatomic) ChatViewController *viewController;
 
 @end

@@ -14,44 +14,17 @@
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize splashController;
 
 #pragma mark -
 #pragma mark ActionStatusDelegate
 
 - (void)completedWithResult:(Result *)result{
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
-    if([result isKindOfClass:[QBAAuthSessionCreationResult class]])
-    {
-        if(result.success)
-        {
-            NSLog(@"QBAAuthSessionCreationResult, success");
-            
-            self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-            // Override point for customization after application launch.
-
-                self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil] autorelease];
-            
-            self.window.rootViewController = self.viewController;
-            [self.window makeKeyAndVisible];
-            
-        }
-        else
-        {
-            NSLog(@"QBAAuthSessionCreationResult, errors=%@", result.errors);
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Did not authorized" 
-                                                            message:[NSString stringWithFormat:@"%@", result.errors] 
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Okey" 
-                                                  otherButtonTitles:nil, nil];
-            [alert show];
-            [alert release];
-        }
-    }
 }
 
 - (void)dealloc
 {
+    [splashController release];
     [_window release];
     [_viewController release];
     [super dealloc];
@@ -60,7 +33,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Auth App
-    [QBAuthService authorizeAppId:appID key:authKey secret:authSecret delegate:self];
+    
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    // Override point for customization after application launch.
+    
+    self.splashController = [[[SplashController alloc] initWithNibName:@"SplashController" bundle:nil] autorelease];
+    
+    self.window.rootViewController = (UIViewController*)self.splashController;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
