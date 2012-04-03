@@ -3,12 +3,11 @@
 //  SimpleSample-chat_users-ios
 //
 //  Created by Alexey Voitenko on 24.02.12.
-//  Copyright (c) 2012 Injoit Ltd. All rights reserved.
+//  Copyright (c) 2012 QuickBlox. All rights reserved.
 //
 
 #import "ChatViewController.h"
 #import "CustomTableViewCellCell.h"
-
 
 @implementation ChatViewController
 
@@ -17,18 +16,17 @@
 @synthesize registrationController;
 @synthesize currentUser = _currentUser;
 @synthesize textField;
-@synthesize messages, myTableView, _cell, idArray;
-
+@synthesize messages, myTableView, _cell, messagesIdsArray;
 
 - (void)dealloc
 {
-    [idArray release];
+    [messagesIdsArray release];
     [_cell release];
     [myTableView release];
     [textField release];
     [loginController release];
     [registrationController release];
-    [currentUser release];
+    [_currentUser release];
     [messages release];
     [super dealloc];
 }
@@ -38,7 +36,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        idArray = [[NSMutableArray alloc] init];
+        messagesIdsArray = [[NSMutableArray alloc] init];
         messages = [[NSMutableArray alloc] init];
     }
     
@@ -48,12 +46,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self searchGeoData:nil];
     
-    //Update data every 30 sec
+    // retrieve messages
+    [self retrieveMessages:nil];
+    
+    // Retrieve new messages every 30 sec
     [NSTimer scheduledTimerWithTimeInterval:30.0
                                      target:self
-                                   selector:@selector(searchGeoData:)
+                                   selector:@selector(retrieveMessages:)
                                    userInfo:nil
                                     repeats:YES];
 }
@@ -78,39 +78,80 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
-#pragma mark -
-#pragma mark GeoData
-
-- (void) searchGeoData:(NSTimer *) timer{
+// retrieve messages
+- (void) retrieveMessages:(NSTimer *) timer{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
+    // create QBLGeoDataSearchRequest entity
 	QBLGeoDataSearchRequest *searchRequest = [[QBLGeoDataSearchRequest alloc] init];
 	searchRequest.status = YES;
     searchRequest.sort_by = GeoDataSortByKindCreatedAt;
-    searchRequest.perPage = 15;
+    searchRequest.perPage = 15; // last 15 messages
+    
+    // retrieve messages
 	[QBLocationService findGeoData:searchRequest delegate:self];
-	[searchRequest release];
+	
+    [searchRequest release];
 }
 
+// Create new message
+- (IBAction) send:(id)sender
+{
+    // Show alert if user did not logged in
+    if(_currentUser == nil)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You must first be authorized." message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign Up", @"Sign In", nil];
+        [alert show];
+        [alert release];
+        return ;
+    }
+    
+    if([textField.text length] == 0){
+        return;
+    }
+    
+    // hide keyboard
+    [self dismissKeyboard];
+    
+    
+    
+    // create QBLGeoData entity
+    QBLGeoData *geoData = [QBLGeoData currentGeoData];
+	geoData.user = _currentUser;
+    geoData.status = textField.text;
+    
+    // create new message
+	[QBLocationService postGeoData:geoData delegate:self];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+
+#pragma mark -
+#pragma mark ActionStatusDelegate
+
+// QuickBlox API queries delegate
 - (void)completedWithResult:(Result *)result
 {
      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
+    // Retrieve messages result
     if([result isKindOfClass:[QBLGeoDataPagedResult class]])
     {
+        // Success result
         if (result.success)
         {
             QBLGeoDataPagedResult *geoDataSearchRes = (QBLGeoDataPagedResult *)result;
 
+            // update table
             BOOL isChanged = NO;
             for (QBLGeoData* geodata in geoDataSearchRes.geodatas)
             {
                 NSNumber *geodataID = [NSNumber numberWithUnsignedInteger:geodata.ID];
-                if(![idArray containsObject:geodataID])
+                if(![messagesIdsArray containsObject:geodataID])
                 {
                     isChanged = YES;
-                    [idArray addObject:geodataID];
+                    [messagesIdsArray addObject:geodataID];
                     [messages addObject:geodata];
                 }
             }
@@ -119,28 +160,34 @@
             {
                 [myTableView reloadData];
             }
+        
+        // Errors
+        }else{
+            NSLog(@"Errors=%@", result.errors);
         }
-    }
-    else if ([result isKindOfClass:[QBLGeoDataResult class]])
-    {
+        
+    // Create new message result
+    }else if ([result isKindOfClass:[QBLGeoDataResult class]]){
+        
+        // Success result
         if (result.success)
         {
-            // Make cell for new message
+            // add new message to table
             NSIndexPath* newMessageIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             ((QBLGeoDataResult*)result).geoData.user = _currentUser;
             [messages insertObject:((QBLGeoDataResult*)result).geoData atIndex:0];
     
             [myTableView insertRowsAtIndexPaths:[NSArray arrayWithObjects:newMessageIndexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
-        }
-        else 
-        {
-            NSLog (@"Error happened :(");
+        
+        // Errors
+        }else{
+            NSLog(@"Errors=%@", result.errors);
         }
     }
 }
 
 #pragma mark -
-#pragma mark Table View Data Source Methods
+#pragma mark UITableViewDataSource & UITableViewDelegate
 
 - (NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -177,44 +224,20 @@
     return 66;
 }
 
-- (IBAction) send:(id)sender
-{
-    // Show alert if user did not logged in
-    if(_currentUser == nil)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You must first be authorized." message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign Up", @"Sign In", nil];
-        [alert show];
-        [alert release];
-        return ;
-    }
-    
-    if([textField.text length] == 0){
-        return;
-    }
-    
-    // hide keyboard
-    [self dismissKeyboard];
-    
-    
-    
-    // post message
-    QBLGeoData *geoData = [QBLGeoData currentGeoData];
-	geoData.user = _currentUser;
-    geoData.status = textField.text;
-	[QBLocationService postGeoData:geoData delegate:self];
-    
-     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-}
 
+#pragma mark -
+#pragma mark UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) 
     {
         case 1:
+            // show registration controller
             [self presentModalViewController:registrationController animated:YES];
             break;
         case 2:
+            // show login controller
             [self presentModalViewController:loginController animated:YES];
             break;
         default:
@@ -237,14 +260,9 @@
     [sender resignFirstResponder];
 }
 
-
-#pragma mark -
-
 -(void)dismissKeyboard
 {
     [textField resignFirstResponder];
 }
-
-
 
 @end

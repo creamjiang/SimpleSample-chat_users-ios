@@ -1,6 +1,6 @@
 //
 //  SplashController.m
-//  SimpleSample-users-ios
+//  SimpleSample-chat_users-ios
 //
 //  Created by Danil on 04.10.11.
 //  Copyright 2011 QuickBlox. All rights reserved.
@@ -32,8 +32,10 @@
 
 - (void) viewDidLoad
 {
-    [QBAuthService authorizeAppId:appID key:authKey secret:authSecret delegate:self];
     [super viewDidLoad];
+    
+    // QuickBlox application authorization
+    [QBAuthService authorizeAppId:appID key:authKey secret:authSecret delegate:self];
 }
 
 - (void)hideSplash
@@ -51,15 +53,42 @@
 #pragma mark -
 #pragma mark ActionStatusDelegate
 
+// QuickBlox API queries delegate
 - (void)completedWithResult:(Result *)result{
     
+    // QuickBlox application authorization result
     if([result isKindOfClass:[QBAAuthSessionCreationResult class]]){
+        
+        // Success result
         if(result.success){
-         [self performSelector:@selector(hideSplash) withObject:nil afterDelay:2];
+            
+            // Hide splash & show main controller
+            [self performSelector:@selector(hideSplash) withObject:nil afterDelay:2];
+            
+            // show Errors
         }else{
-            //[self processErrors:result.errors];
+            [self processErrors:result.errors];
         }
     }
+}
+
+// Show errors
+-(void)processErrors:(NSArray *)errors{
+	NSMutableString *errorsString = [NSMutableString stringWithCapacity:0];
+	
+	for(NSString *error in errors){
+		[errorsString appendFormat:@"%@\n", error];
+	}
+	
+	if ([errorsString length] > 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", "") 
+                                                        message:errorsString 
+                                                       delegate:nil 
+                                              cancelButtonTitle:NSLocalizedString(@"OK", "") 
+                                              otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+	}
 }
 
 @end

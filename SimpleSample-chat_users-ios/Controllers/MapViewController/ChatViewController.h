@@ -3,7 +3,7 @@
 //  SimpleSample-chat_users-ios
 //
 //  Created by Alexey Voitenko on 24.02.12.
-//  Copyright (c) 2012 Injoit Ltd. All rights reserved.
+//  Copyright (c) 2012 QuickBlox. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -14,13 +14,6 @@
 
 @interface ChatViewController : UIViewController <ActionStatusDelegate, UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource> 
 {
-
-    UIViewController *loginController;
-    UIViewController *registrationController;
-    QBUUser *currentUser;
-    UITextField* textField;
-    UITableView* myTableView;
-    IBOutlet CustomTableViewCellCell* _cell;
 }
 
 @property (nonatomic, retain) IBOutlet UIViewController *loginController;
@@ -30,10 +23,10 @@
 @property (nonatomic, retain) IBOutlet UITableView* myTableView;
 @property (nonatomic, retain) IBOutlet CustomTableViewCellCell* _cell;
 @property (nonatomic, assign) NSMutableArray* messages;
-@property (nonatomic, assign) NSMutableArray* idArray;
+@property (nonatomic, assign) NSMutableArray* messagesIdsArray;
 
 - (IBAction) send: (id)sender;
-- (void) searchGeoData:(NSTimer *) timer;
+- (void) retrieveMessages:(NSTimer *) timer;
 - (IBAction)textFieldDoneEditing:(id)sender;
 
 @end

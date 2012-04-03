@@ -41,19 +41,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)next:(id)sender 
-{
+// User Sign Up
+- (IBAction)next:(id)sender {
 	 
-    // Register user
+    // Create QuickBlox User entity
     QBUUser *user = [[QBUUser alloc] init];
     user.ownerID = ownerID;        
 	user.password = password.text;
     user.login = userName.text;
-	
-	[activityIndicator startAnimating];
     
+    // create User
 	[QBUsersService createUser:user delegate:self];
     [user release];
+    
+    [activityIndicator startAnimating];
 }
 
 - (IBAction)back:(id)sender 
@@ -65,20 +66,21 @@
 #pragma mark -
 #pragma mark ActionStatusDelegate
 
+// QuickBlox API queries delegate
 -(void)completedWithResult:(Result*)result
 {
+    // QuickBlox User creation result
     if([result isKindOfClass:[QBUUserResult class]])
     {
-		QBUUserResult *res = (QBUUserResult *)result;
-        
-		if(res.success)
+        // Success result
+		if(result.success)
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registration successful. Please now sign in." message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alert show];
             [alert release];
-		}
-        else
-        {
+		
+        // Errors
+        }else{
             NSLog(@"Errors=%@", result.errors);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error happened" 
                                                             message:[NSString stringWithFormat:@"%@",result.errors] 

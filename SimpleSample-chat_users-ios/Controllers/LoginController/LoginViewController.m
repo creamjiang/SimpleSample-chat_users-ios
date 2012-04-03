@@ -40,14 +40,16 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+// User Sign In
 - (IBAction)next:(id)sender
 {
+    // Create QuickBlox User entity
     QBUUser *qbUser = [[QBUUser alloc] init];
     qbUser.ownerID = ownerID;        
     qbUser.login = login.text;
 	qbUser.password = password.text;
     
-    // authenticate
+     // Authenticate user
     [QBUsersService authenticateUser:qbUser delegate:self];
     
     [qbUser release];
@@ -64,34 +66,34 @@
 #pragma mark -
 #pragma mark ActionStatusDelegate
 
+// QuickBlox API queries delegate
 -(void)completedWithResult:(Result *)result
 {
+    // QuickBlox User authenticate result
     if([result isKindOfClass:[QBUUserAuthenticateResult class]])
     {
-		QBUUserAuthenticateResult *res = (QBUUserAuthenticateResult *)result;
-		if(res.success)
+         // Success result
+		if(result.success)
         {
+            QBUUserAuthenticateResult *res = (QBUUserAuthenticateResult *)result;
+            
+            // save current user
             if([self respondsToSelector:@selector(presentingViewController)]){// iOS 5.0
                 [((ChatViewController *)[self presentingViewController]) setCurrentUser:[res user]];
-            }
-            else
-            {
+            }else{
                 [((ChatViewController *)[self parentViewController]) setCurrentUser:[res user]];
             }
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Authentification successful" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alert show];
             [alert release];
-		}
-        else 
-        if(401 == result.status)
-        {
+		
+        // Errors
+        }else if(401 == result.status){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Authentification unsuccessful. Not registered." message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alert show];
             [alert release];
-        }
-        else
-        {
+        }else{
             NSLog(@"Errors=%@", result.errors);
         }
     }

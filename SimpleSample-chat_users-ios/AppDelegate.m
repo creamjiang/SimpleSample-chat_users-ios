@@ -8,12 +8,9 @@
 
 #import "AppDelegate.h"
 
-#import "ChatViewController.h"
-
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
 @synthesize splashController;
 
 #pragma mark -
@@ -26,19 +23,17 @@
 {
     [splashController release];
     [_window release];
-    [_viewController release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Auth App
-    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
-    self.splashController = [[[SplashController alloc] initWithNibName:@"SplashController" bundle:nil] autorelease];
     
+    // show splash controller
+    self.splashController = [[[SplashController alloc] initWithNibName:@"SplashController" bundle:nil] autorelease];
     self.window.rootViewController = (UIViewController*)self.splashController;
     [self.window makeKeyAndVisible];
     

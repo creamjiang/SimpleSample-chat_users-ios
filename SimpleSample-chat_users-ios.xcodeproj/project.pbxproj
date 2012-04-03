@@ -18,23 +18,23 @@
 		8A2F268914F7F25B00292876 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2F268814F7F25B00292876 /* MapKit.framework */; };
 		8A78244E15061F6600036DEC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A78244D15061F6600036DEC /* QuartzCore.framework */; };
 		8A798A67150A754C00431A49 /* CustomTableViewCellCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A798A66150A754C00431A49 /* CustomTableViewCellCell.m */; };
-		8A7B71E4150795E3001C6FF5 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7B71E3150795E3001C6FF5 /* CustomTableViewCell.xib */; };
-		8A890B5F15139F4700C7252B /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A890B5E15139F4700C7252B /* Quickblox.framework */; };
 		8A890B6415139F6100C7252B /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A890B6315139F6100C7252B /* SplashController.m */; };
-		8A890B6615139F8B00C7252B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A890B6515139F8B00C7252B /* logo.png */; };
-		8A890B6815139F9400C7252B /* SplashController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A890B6715139F9400C7252B /* SplashController.xib */; };
 		8AB7E09C15067DEC009AFCD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E07C15067DEC009AFCD3 /* AppDelegate.m */; };
 		8AB7E09F15067DEC009AFCD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E08515067DEC009AFCD3 /* LoginViewController.m */; };
 		8AB7E0A015067DEC009AFCD3 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E08815067DEC009AFCD3 /* ChatViewController.m */; };
 		8AB7E0A115067DEC009AFCD3 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E08C15067DEC009AFCD3 /* RegistrationViewController.m */; };
-		8AB7E0A215067DEC009AFCD3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E08F15067DEC009AFCD3 /* Default.png */; };
-		8AB7E0A315067DEC009AFCD3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09015067DEC009AFCD3 /* icon.png */; };
-		8AB7E0A515067DEC009AFCD3 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09215067DEC009AFCD3 /* pin.png */; };
-		8AB7E0A615067DEC009AFCD3 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09415067DEC009AFCD3 /* LoginViewController.xib */; };
-		8AB7E0A715067DEC009AFCD3 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09515067DEC009AFCD3 /* RegistrationViewController.xib */; };
-		8AB7E0A815067DEC009AFCD3 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09615067DEC009AFCD3 /* ChatViewController.xib */; };
 		8AB7E0A915067DEC009AFCD3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09815067DEC009AFCD3 /* InfoPlist.strings */; };
 		8AB7E0AA15067DEC009AFCD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E09915067DEC009AFCD3 /* main.m */; };
+		FA43AE35152B9B04000A2EF7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE2B152B9B04000A2EF7 /* Default.png */; };
+		FA43AE36152B9B04000A2EF7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE2C152B9B04000A2EF7 /* icon.png */; };
+		FA43AE37152B9B04000A2EF7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE2D152B9B04000A2EF7 /* logo.png */; };
+		FA43AE38152B9B04000A2EF7 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE2E152B9B04000A2EF7 /* pin.png */; };
+		FA43AE39152B9B04000A2EF7 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE30152B9B04000A2EF7 /* ChatViewController.xib */; };
+		FA43AE3A152B9B04000A2EF7 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE31152B9B04000A2EF7 /* CustomTableViewCell.xib */; };
+		FA43AE3B152B9B04000A2EF7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE32152B9B04000A2EF7 /* LoginViewController.xib */; };
+		FA43AE3C152B9B04000A2EF7 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE33152B9B04000A2EF7 /* RegistrationViewController.xib */; };
+		FA43AE3D152B9B04000A2EF7 /* SplashController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE34152B9B04000A2EF7 /* SplashController.xib */; };
+		FA43AE3F152B9B22000A2EF7 /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA43AE3E152B9B22000A2EF7 /* Quickblox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,12 +51,8 @@
 		8A78244D15061F6600036DEC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8A798A65150A754C00431A49 /* CustomTableViewCellCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCellCell.h; path = "SimpleSample-chat_users-ios/Classes/CustomTableViewCellCell.h"; sourceTree = "<group>"; };
 		8A798A66150A754C00431A49 /* CustomTableViewCellCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCellCell.m; path = "SimpleSample-chat_users-ios/Classes/CustomTableViewCellCell.m"; sourceTree = "<group>"; };
-		8A7B71E3150795E3001C6FF5 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		8A890B5E15139F4700C7252B /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
 		8A890B6215139F6100C7252B /* SplashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashController.h; sourceTree = "<group>"; };
 		8A890B6315139F6100C7252B /* SplashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashController.m; sourceTree = "<group>"; };
-		8A890B6515139F8B00C7252B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		8A890B6715139F9400C7252B /* SplashController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashController.xib; sourceTree = "<group>"; };
 		8AB7E07B15067DEC009AFCD3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "SimpleSample-chat_users-ios/AppDelegate.h"; sourceTree = "<group>"; };
 		8AB7E07C15067DEC009AFCD3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "SimpleSample-chat_users-ios/AppDelegate.m"; sourceTree = "<group>"; };
 		8AB7E08415067DEC009AFCD3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -66,16 +62,20 @@
 		8AB7E08B15067DEC009AFCD3 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		8AB7E08C15067DEC009AFCD3 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		8AB7E08D15067DEC009AFCD3 /* QBConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBConsts.h; path = "SimpleSample-chat_users-ios/QBConsts.h"; sourceTree = "<group>"; };
-		8AB7E08F15067DEC009AFCD3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8AB7E09015067DEC009AFCD3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		8AB7E09215067DEC009AFCD3 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
-		8AB7E09415067DEC009AFCD3 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		8AB7E09515067DEC009AFCD3 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
-		8AB7E09615067DEC009AFCD3 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		8AB7E09815067DEC009AFCD3 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		8AB7E09915067DEC009AFCD3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8AB7E09A15067DEC009AFCD3 /* SimpleSample-chat_users-ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleSample-chat_users-ios-Info.plist"; sourceTree = "<group>"; };
 		8AB7E09B15067DEC009AFCD3 /* SimpleSample-chat_users-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SimpleSample-chat_users-ios-Prefix.pch"; sourceTree = "<group>"; };
+		FA43AE2B152B9B04000A2EF7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FA43AE2C152B9B04000A2EF7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		FA43AE2D152B9B04000A2EF7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		FA43AE2E152B9B04000A2EF7 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		FA43AE30152B9B04000A2EF7 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		FA43AE31152B9B04000A2EF7 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		FA43AE32152B9B04000A2EF7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		FA43AE33152B9B04000A2EF7 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		FA43AE34152B9B04000A2EF7 /* SplashController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashController.xib; sourceTree = "<group>"; };
+		FA43AE3E152B9B22000A2EF7 /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quickblox.framework; path = "../../../Downloads/SDK-ios/Framework/build/Framework/Quickblox.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 				8A2F268114F7F1E900292876 /* SystemConfiguration.framework in Frameworks */,
 				8A2F267F14F7F1E400292876 /* CFNetwork.framework in Frameworks */,
 				8A2F265E14F7F0D300292876 /* Foundation.framework in Frameworks */,
-				8A890B5F15139F4700C7252B /* Quickblox.framework in Frameworks */,
+				FA43AE3F152B9B22000A2EF7 /* Quickblox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,12 +103,12 @@
 		8A2F264C14F7F0D300292876 = {
 			isa = PBXGroup;
 			children = (
-				8A798A63150A74BA00431A49 /* Classes */,
+				8AB7E08D15067DEC009AFCD3 /* QBConsts.h */,
 				8AB7E07B15067DEC009AFCD3 /* AppDelegate.h */,
 				8AB7E07C15067DEC009AFCD3 /* AppDelegate.m */,
+				8A798A63150A74BA00431A49 /* Classes */,
 				8AB7E08215067DEC009AFCD3 /* Controllers */,
-				8AB7E08D15067DEC009AFCD3 /* QBConsts.h */,
-				8AB7E08E15067DEC009AFCD3 /* Resources */,
+				FA43AE29152B9B04000A2EF7 /* Resources */,
 				8AB7E09715067DEC009AFCD3 /* Supporting Files */,
 				8A2F265A14F7F0D300292876 /* Frameworks */,
 				8A2F265814F7F0D300292876 /* Products */,
@@ -126,10 +126,10 @@
 		8A2F265A14F7F0D300292876 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A890B5E15139F4700C7252B /* Quickblox.framework */,
 				8A2F268614F7F1FF00292876 /* libz.dylib */,
 				8A78244D15061F6600036DEC /* QuartzCore.framework */,
 				8A2F268814F7F25B00292876 /* MapKit.framework */,
+				FA43AE3E152B9B22000A2EF7 /* Quickblox.framework */,
 				8A2F268414F7F1F900292876 /* CoreLocation.framework */,
 				8A2F268214F7F1EF00292876 /* MobileCoreServices.framework */,
 				8A2F268014F7F1E900292876 /* SystemConfiguration.framework */,
@@ -199,31 +199,6 @@
 			path = RegistrationController;
 			sourceTree = "<group>";
 		};
-		8AB7E08E15067DEC009AFCD3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8AB7E09315067DEC009AFCD3 /* xib files */,
-				8AB7E08F15067DEC009AFCD3 /* Default.png */,
-				8AB7E09015067DEC009AFCD3 /* icon.png */,
-				8A890B6515139F8B00C7252B /* logo.png */,
-				8AB7E09215067DEC009AFCD3 /* pin.png */,
-			);
-			name = Resources;
-			path = "SimpleSample-chat_users-ios/Resources";
-			sourceTree = "<group>";
-		};
-		8AB7E09315067DEC009AFCD3 /* xib files */ = {
-			isa = PBXGroup;
-			children = (
-				8A890B6715139F9400C7252B /* SplashController.xib */,
-				8AB7E09415067DEC009AFCD3 /* LoginViewController.xib */,
-				8AB7E09515067DEC009AFCD3 /* RegistrationViewController.xib */,
-				8AB7E09615067DEC009AFCD3 /* ChatViewController.xib */,
-				8A7B71E3150795E3001C6FF5 /* CustomTableViewCell.xib */,
-			);
-			path = "xib files";
-			sourceTree = "<group>";
-		};
 		8AB7E09715067DEC009AFCD3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +209,38 @@
 			);
 			name = "Supporting Files";
 			path = "SimpleSample-chat_users-ios/Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA43AE29152B9B04000A2EF7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA43AE2A152B9B04000A2EF7 /* iPhone */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA43AE2A152B9B04000A2EF7 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				FA43AE2B152B9B04000A2EF7 /* Default.png */,
+				FA43AE2C152B9B04000A2EF7 /* icon.png */,
+				FA43AE2D152B9B04000A2EF7 /* logo.png */,
+				FA43AE2E152B9B04000A2EF7 /* pin.png */,
+				FA43AE2F152B9B04000A2EF7 /* xibs */,
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		FA43AE2F152B9B04000A2EF7 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				FA43AE30152B9B04000A2EF7 /* ChatViewController.xib */,
+				FA43AE31152B9B04000A2EF7 /* CustomTableViewCell.xib */,
+				FA43AE32152B9B04000A2EF7 /* LoginViewController.xib */,
+				FA43AE33152B9B04000A2EF7 /* RegistrationViewController.xib */,
+				FA43AE34152B9B04000A2EF7 /* SplashController.xib */,
+			);
+			path = xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,16 +293,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AB7E0A215067DEC009AFCD3 /* Default.png in Resources */,
-				8AB7E0A315067DEC009AFCD3 /* icon.png in Resources */,
-				8AB7E0A515067DEC009AFCD3 /* pin.png in Resources */,
-				8AB7E0A615067DEC009AFCD3 /* LoginViewController.xib in Resources */,
-				8AB7E0A715067DEC009AFCD3 /* RegistrationViewController.xib in Resources */,
-				8AB7E0A815067DEC009AFCD3 /* ChatViewController.xib in Resources */,
 				8AB7E0A915067DEC009AFCD3 /* InfoPlist.strings in Resources */,
-				8A7B71E4150795E3001C6FF5 /* CustomTableViewCell.xib in Resources */,
-				8A890B6615139F8B00C7252B /* logo.png in Resources */,
-				8A890B6815139F9400C7252B /* SplashController.xib in Resources */,
+				FA43AE35152B9B04000A2EF7 /* Default.png in Resources */,
+				FA43AE36152B9B04000A2EF7 /* icon.png in Resources */,
+				FA43AE37152B9B04000A2EF7 /* logo.png in Resources */,
+				FA43AE38152B9B04000A2EF7 /* pin.png in Resources */,
+				FA43AE39152B9B04000A2EF7 /* ChatViewController.xib in Resources */,
+				FA43AE3A152B9B04000A2EF7 /* CustomTableViewCell.xib in Resources */,
+				FA43AE3B152B9B04000A2EF7 /* LoginViewController.xib in Resources */,
+				FA43AE3C152B9B04000A2EF7 /* RegistrationViewController.xib in Resources */,
+				FA43AE3D152B9B04000A2EF7 /* SplashController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +379,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../SDK-ios/Framework/build/Framework\"",
+					"\"$(SRCROOT)/../../SDK-ios/Framework/build/Framework\"",
+					"\"$(SRCROOT)/../../../Downloads/SDK-ios/Framework/build/Framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleSample-chat_users-ios/Supporting Files/SimpleSample-chat_users-ios-Prefix.pch";
@@ -392,6 +401,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../SDK-ios/Framework/build/Framework\"",
+					"\"$(SRCROOT)/../../SDK-ios/Framework/build/Framework\"",
+					"\"$(SRCROOT)/../../../Downloads/SDK-ios/Framework/build/Framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleSample-chat_users-ios/Supporting Files/SimpleSample-chat_users-ios-Prefix.pch";
