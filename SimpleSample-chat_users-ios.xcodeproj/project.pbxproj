@@ -21,7 +21,6 @@
 		8A890B6415139F6100C7252B /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A890B6315139F6100C7252B /* SplashController.m */; };
 		8AB7E09C15067DEC009AFCD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E07C15067DEC009AFCD3 /* AppDelegate.m */; };
 		8AB7E09F15067DEC009AFCD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E08515067DEC009AFCD3 /* LoginViewController.m */; };
-		8AB7E0A015067DEC009AFCD3 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E08815067DEC009AFCD3 /* ChatViewController.m */; };
 		8AB7E0A115067DEC009AFCD3 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E08C15067DEC009AFCD3 /* RegistrationViewController.m */; };
 		8AB7E0A915067DEC009AFCD3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7E09815067DEC009AFCD3 /* InfoPlist.strings */; };
 		8AB7E0AA15067DEC009AFCD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7E09915067DEC009AFCD3 /* main.m */; };
@@ -35,6 +34,7 @@
 		FA43AE3C152B9B04000A2EF7 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE33152B9B04000A2EF7 /* RegistrationViewController.xib */; };
 		FA43AE3D152B9B04000A2EF7 /* SplashController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA43AE34152B9B04000A2EF7 /* SplashController.xib */; };
 		FA43AE3F152B9B22000A2EF7 /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA43AE3E152B9B22000A2EF7 /* Quickblox.framework */; };
+		FAFCBAC3152C4ED40042B1C1 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFCBAC2152C4ED40042B1C1 /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +57,6 @@
 		8AB7E07C15067DEC009AFCD3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "SimpleSample-chat_users-ios/AppDelegate.m"; sourceTree = "<group>"; };
 		8AB7E08415067DEC009AFCD3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8AB7E08515067DEC009AFCD3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		8AB7E08715067DEC009AFCD3 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
-		8AB7E08815067DEC009AFCD3 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		8AB7E08B15067DEC009AFCD3 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		8AB7E08C15067DEC009AFCD3 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		8AB7E08D15067DEC009AFCD3 /* QBConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBConsts.h; path = "SimpleSample-chat_users-ios/QBConsts.h"; sourceTree = "<group>"; };
@@ -76,6 +74,8 @@
 		FA43AE33152B9B04000A2EF7 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		FA43AE34152B9B04000A2EF7 /* SplashController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashController.xib; sourceTree = "<group>"; };
 		FA43AE3E152B9B22000A2EF7 /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quickblox.framework; path = "../../../Downloads/SDK-ios/Framework/build/Framework/Quickblox.framework"; sourceTree = "<group>"; };
+		FAFCBAC1152C4ED40042B1C1 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		FAFCBAC2152C4ED40042B1C1 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				8A890B6115139F6100C7252B /* SplashController */,
+				FAFCBAC0152C4ED40042B1C1 /* ChatViewController */,
 				8AB7E08315067DEC009AFCD3 /* LoginController */,
-				8AB7E08615067DEC009AFCD3 /* ChatViewController */,
 				8AB7E08A15067DEC009AFCD3 /* RegistrationController */,
 			);
 			name = Controllers;
@@ -178,16 +178,6 @@
 				8AB7E08515067DEC009AFCD3 /* LoginViewController.m */,
 			);
 			path = LoginController;
-			sourceTree = "<group>";
-		};
-		8AB7E08615067DEC009AFCD3 /* ChatViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8AB7E08715067DEC009AFCD3 /* ChatViewController.h */,
-				8AB7E08815067DEC009AFCD3 /* ChatViewController.m */,
-			);
-			name = ChatViewController;
-			path = MapViewController;
 			sourceTree = "<group>";
 		};
 		8AB7E08A15067DEC009AFCD3 /* RegistrationController */ = {
@@ -241,6 +231,15 @@
 				FA43AE34152B9B04000A2EF7 /* SplashController.xib */,
 			);
 			path = xibs;
+			sourceTree = "<group>";
+		};
+		FAFCBAC0152C4ED40042B1C1 /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAFCBAC1152C4ED40042B1C1 /* ChatViewController.h */,
+				FAFCBAC2152C4ED40042B1C1 /* ChatViewController.m */,
+			);
+			path = ChatViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,11 +314,11 @@
 			files = (
 				8AB7E09C15067DEC009AFCD3 /* AppDelegate.m in Sources */,
 				8AB7E09F15067DEC009AFCD3 /* LoginViewController.m in Sources */,
-				8AB7E0A015067DEC009AFCD3 /* ChatViewController.m in Sources */,
 				8AB7E0A115067DEC009AFCD3 /* RegistrationViewController.m in Sources */,
 				8AB7E0AA15067DEC009AFCD3 /* main.m in Sources */,
 				8A798A67150A754C00431A49 /* CustomTableViewCellCell.m in Sources */,
 				8A890B6415139F6100C7252B /* SplashController.m in Sources */,
+				FAFCBAC3152C4ED40042B1C1 /* ChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
