@@ -1,9 +1,9 @@
 This sample demonstrates how to work with Chat (and Users) QuickBlox services.
 
-It allows to organize general chat.
+It allows to organize 1 on 1 chat.
 It shows how to:
-- Retrieve all users’ messages
-- Send own message
+- Retrieve users list
+- Organize chat between 2 users
 
 Sample description - http://quickblox.com/samples/simplesample-chat_users-ios/
 
