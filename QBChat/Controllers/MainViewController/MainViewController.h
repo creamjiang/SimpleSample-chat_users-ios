@@ -18,13 +18,16 @@
 @interface MainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ActionStatusDelegate, UIActionSheetDelegate, UIAlertViewDelegate,QBChatServiceDelegate>{
 
     NSMutableArray* selectedUsersIndexPathes;
+    NSMutableArray* chatRooms;
     
     NSTimer *sendPresenceTimer; 
+    NSTimer *requestRoomsTimer;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *usersAndRoomsTableView;
 
 - (void) retrieveUsers;
+- (void) updateRooms;
 
 - (IBAction) startChatAction:(id)sender;
 - (void) startChatWithUsersWithRoomName:(NSString *)roomName;

@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "OCPromptView.h"
 
 @interface MainViewController ()
 
@@ -24,6 +25,7 @@
     if(self){
         // Do any additional setup after loading the view, typically from a nib.
         selectedUsersIndexPathes = [[NSMutableArray alloc] init];
+        chatRooms = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -31,6 +33,7 @@
 
 - (void)dealloc
 {
+    [chatRooms release];
 	[selectedUsersIndexPathes release];
     
     [sendPresenceTimer release];
@@ -70,17 +73,27 @@
                                                                 selector:@selector(sendPresence) 
                                                                 userInfo:nil 
                                                                  repeats:YES] retain];
-            [sendPresenceTimer fire];
         }
+        
+        // retrieve rooms
+        if(requestRoomsTimer == nil){
+            requestRoomsTimer= [[NSTimer scheduledTimerWithTimeInterval:10 
+                                                                 target:self 
+                                                               selector:@selector(updateRooms) 
+                                                               userInfo:nil 
+                                                                repeats:YES] retain];
+            [self updateRooms];
+        }
+
     }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    [sendPresenceTimer invalidate];
-    [sendPresenceTimer release];
-    sendPresenceTimer = nil;
+    [requestRoomsTimer invalidate];
+    [requestRoomsTimer release];
+    requestRoomsTimer = nil;
 }
 
 - (void)viewDidUnload
@@ -124,6 +137,12 @@
 	[request release];
 }
 
+// update rooms
+- (void)updateRooms
+{
+	[[QBChatService instance] requestAllRooms];
+}
+
 // Start Chat button action
 - (void)startChatAction:(id)sender
 {
@@ -152,29 +171,54 @@
 		[alert show];
 		[alert release];
         
-        return;
-	
-    }
-	
+    // 1 on 1 Chat
+    }else if ([selectedUsersIndexPathes count] == 1){
+        // start chat
+		[self startChatWithUsersWithRoomName:nil];
         
-    // start chat
-    [self startChatWithUsersWithRoomName:nil];
+    // Chat in room
+    }else{ 
+        // enter room name
+		OCPromptView* alertView = [[OCPromptView alloc] initWithPrompt:@"Enter room name" 
+                                                              delegate:self 
+                                                     cancelButtonTitle:@"Cancel" 
+                                                     acceptButtonTitle:@"Create"];
+		alertView.tag = 1;
+		[alertView show];
+		[alertView release];
+	}
 }
 
 // start chat with users
 - (void)startChatWithUsersWithRoomName:(NSString *)roomName
 {	
-    // start tet-a-tet chat 
-    
-    // save opponent
-    int row = [[selectedUsersIndexPathes objectAtIndex:0] intValue];
-    
-    ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
-    chatViewController.userOpponent = [[DataStorage instance].users objectAtIndex:row];
-
-    // show Chat controller
-    [self presentModalViewController:chatViewController animated:YES];
-
+    // start tet-a-tet chat if one user has been choosed
+	if ([selectedUsersIndexPathes count] == 1){
+        // save opponent
+        int row = [[selectedUsersIndexPathes objectAtIndex:0] intValue];
+        
+        ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
+        chatViewController.userOpponent = [[DataStorage instance].users objectAtIndex:row];
+        
+        // show Chat controller
+		[self presentModalViewController:chatViewController animated:YES];
+        
+        // create chat room and start group chat
+    }else {
+        // strat & join room
+		QBChatRoom* room = [[QBChatService instance] newRoomWithName:roomName];
+		[chatRooms addObject:room];
+        [room release];
+		[[QBChatService instance] joinRoom:room];
+        
+        ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
+        
+        // save room
+		chatViewController.currentChatRoom = room;
+		
+        // show Chat controller
+		[self presentModalViewController:chatViewController animated:YES];
+	}
 	
     // delete cheks
 	[selectedUsersIndexPathes removeAllObjects];
@@ -187,65 +231,178 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* SimpleTableIdentifier2 = @"UserTableIdentifier";
-    
-    // create cell
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier2];
-    if (cell == nil){
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleTableIdentifier2] autorelease];
-    }
-    
-     // set user name
-    QBUUser *user = [[DataStorage instance].users objectAtIndex:[indexPath row]];
-    cell.textLabel.text = user.login;
-    cell.detailTextLabel.text = user.fullName;
-    
-    NSNumber *row = [NSNumber numberWithInt:indexPath.row];
-    
-    //select/deselect cell
-    if ([selectedUsersIndexPathes containsObject:row]){
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }else{
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
-    return cell;
+    // 2 sections
+	if ([chatRooms count] > 0)
+	{
+        // users
+		if (indexPath.section == 1)
+		{
+			static NSString* SimpleTableIdentifier1 = @"UserTableIdentifier";
+            
+            // create cell
+			UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier1];
+			if (cell == nil){
+				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleTableIdentifier1] autorelease];
+			}
+            
+            // set user name
+			QBUUser *user = [[DataStorage instance].users objectAtIndex:[indexPath row]];
+			cell.textLabel.text = user.login;
+			cell.detailTextLabel.text = user.fullName;
+            
+            NSNumber *row = [NSNumber numberWithInt:indexPath.row];
+            
+            //select/deselect cell
+            if ([selectedUsersIndexPathes containsObject:row]){
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+            
+			return cell;
+            
+            // rooms
+        }else {
+			static NSString* SimpleTableIdentifier = @"RoomTableIdentifier";
+			
+            // create cell
+			UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
+			if (cell == nil){
+				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleTableIdentifier] autorelease];
+			}
+			
+            // set room name
+            QBChatRoom* room = [chatRooms objectAtIndex:[indexPath row]];
+            cell.textLabel.text = room.name;
+            
+			return cell;
+		}
+        
+    }else {
+		static NSString* SimpleTableIdentifier2 = @"UserTableIdentifier";
+		
+        // create cell
+		UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier2];
+		if (cell == nil){
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleTableIdentifier2] autorelease];
+		}
+        
+        // set user name
+		QBUUser *user = [[DataStorage instance].users objectAtIndex:[indexPath row]];
+		cell.textLabel.text = user.login;
+		cell.detailTextLabel.text = user.fullName;
+        
+        NSNumber *row = [NSNumber numberWithInt:indexPath.row];
+        
+        //select/deselect cell
+        if ([selectedUsersIndexPathes containsObject:row]){
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        
+		return cell;
+	}
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[DataStorage instance].users count];
+	if ([chatRooms count] > 0)
+	{
+		if (section == 0)
+		{
+			return [chatRooms count];
+		}
+		else
+		{
+			return [[DataStorage instance].users count];
+		}
+	}
+	else 
+	{
+		return [[DataStorage instance].users count];
+	}
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+	if ([chatRooms count] > 0)
+	{
+		return 2;
+	}
+	else 
+	{
+		return 1;
+	}
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Users";
+	if ([chatRooms count] > 0)
+	{
+		if (section == 0)
+		{
+			return @"Public rooms";
+		}
+		else 
+		{
+			return @"Users";
+		}
+	}
+	else 
+	{
+		return @"Users";
+	}
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [usersAndRoomsTableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    // add selected user index path or remove it from selected users array
     
-    NSNumber *row = [NSNumber numberWithInt:indexPath.row];
-    
-    if ([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone){
+    // 2 sections (users & rooms)
+    if(tableView.numberOfSections == 2){
+        if (indexPath.section == 0)
+        {
+            // enter to room
+            QBChatRoom* room = [chatRooms objectAtIndex:[indexPath row]];
+            [room joinRoom];
+            
+            ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
+            
+            // save room
+            chatViewController.currentChatRoom = room;
+            
+            // show Chat controller
+            [self presentModalViewController:chatViewController animated:YES];
+        }
+        else if (indexPath.section == 1)
+        {
+            // add selected user index path or remove it from selected users array
+            
+            NSNumber *row = [NSNumber numberWithInt:indexPath.row];
+            
+            if ([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone){
+                [selectedUsersIndexPathes addObject:row];
+                [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+            }else {
+                [selectedUsersIndexPathes removeObject:row];
+                [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+            }
+        } 
         
-        [selectedUsersIndexPathes removeAllObjects];
+        // 1 section (users)
+    }else{
+        // add selected user index path or remove it from selected users array
         
-        [selectedUsersIndexPathes addObject:row];
-        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        NSNumber *row = [NSNumber numberWithInt:indexPath.row];
         
-        [tableView reloadData];
-    }else {
-        [selectedUsersIndexPathes removeObject:row];
-        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+        if ([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone){
+            [selectedUsersIndexPathes addObject:row];
+            [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        }else {
+            [selectedUsersIndexPathes removeObject:row];
+            [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+        }
     }
 }
 
@@ -297,15 +454,70 @@
 
 
 #pragma mark -
+#pragma mark UIAlertView delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // Enter room name alert
+	if (alertView.tag == 1)
+	{
+		if (buttonIndex == 1)
+		{
+			if ([[((OCPromptView*)alertView) enteredText] length] > 0)
+			{
+                // start chat in room
+				[self startChatWithUsersWithRoomName:[((OCPromptView*)alertView) enteredText]];
+			}
+			else 
+			{
+                // you must enter room name 
+				UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+																message:@"Please, enter room name" 
+															   delegate:nil 
+													  cancelButtonTitle:@"Ok" 
+													  otherButtonTitles:nil, nil];
+				[alert show];
+				[alert release];
+			}
+		}
+	}
+}
+
+
+#pragma mark -
 #pragma mark QBChatService delegate
 
+/**
+ Called in case receiving list of avaible to join rooms. Array rooms contains jids NSString type
+ */
+- (void)chatDidReceiveListOfRooms:(NSArray *)rooms
+{
+    
+    // remove not existed
+    NSMutableArray *array = [NSMutableArray arrayWithArray:chatRooms];
+    for(QBChatRoom *oldRoom in array){
+        if(![rooms containsObject:oldRoom]){
+            [chatRooms removeObject:oldRoom];
+        }
+    }
+    
+    // add new rooms
+    for(QBChatRoom *newRoom in rooms){
+        if(![chatRooms containsObject:newRoom]){
+            [chatRooms addObject:newRoom]; 
+        }
+    }
+	
+    // reload table
+    [usersAndRoomsTableView reloadData];
+}
 
 /**
  didNotLogin fired when login process did not finished successfully
  */
 - (void)chatDidLogin
 {
-    // do something
+    // do something if need
 }
 
 /**

@@ -14,7 +14,7 @@
 
 @implementation ChatViewController
 @synthesize messageTextField, chatTableView, toolBar;
-@synthesize userOpponent;
+@synthesize userOpponent, currentChatRoom;
 
 
 #pragma mark -
@@ -55,6 +55,11 @@
     UIBarButtonItem *backButton = [toolBar.items objectAtIndex:0];
     backButton.target = self;
     backButton.action = @selector(back:);
+    
+    // leave chat button action
+    UIBarButtonItem *leavChatButton = [toolBar.items objectAtIndex:2];
+    leavChatButton.target = self;
+    leavChatButton.action = @selector(leaveChat:);
 }
 
 - (void)viewDidUnload
@@ -80,27 +85,45 @@
 // Send message action
 -(void)sendMessage:(id)sender
 {
-    QBChatMessage* message = [[QBChatMessage alloc] init];
-    message.recipientJID = [[QBChatService instance] jidFromUser:userOpponent];
-    message.senderJID = [[QBChatService instance] jidFromUser:[QBUsersService currentUser]];;
-    message.text = messageTextField.text;
-    
-    // send message
-    [[QBChatService instance] sendMessage:message];
-
-    messageTextField.text = nil;
-    [messageTextField resignFirstResponder];
-
-    // reload table
-    [messages addObject:message];
-    [message release];
-    [chatTableView reloadData];
-	
+    // this is Room
+	if (currentChatRoom){
+        // send message to room
+		[[QBChatService instance] sendMessage:messageTextField.text toRoom:currentChatRoom];
+        
+		messageTextField.text = nil;
+		[messageTextField resignFirstResponder];
+        
+        // tet a tet
+    }else {
+		QBChatMessage* message = [[QBChatMessage alloc] init];
+		message.recipientJID = [[QBChatService instance] jidFromUser:userOpponent];
+		message.senderJID = [[QBChatService instance] jidFromUser:[QBUsersService currentUser]];;
+		message.text = messageTextField.text;
+		
+        // send message
+		[[QBChatService instance] sendMessage:message];
+        
+        messageTextField.text = nil;
+		[messageTextField resignFirstResponder];
+        
+		// reload table
+		[messages addObject:message];
+        [message release];
+		[chatTableView reloadData];
+	}
 }
 
 // Back action
 - (void)back:(id)sender
 {
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+
+// Leave chat action
+- (void)leaveChat:(id)sender{
+	[[QBChatService instance] leaveRoom:currentChatRoom];
+    
 	[self dismissModalViewControllerAnimated:YES];
 }
 
@@ -129,8 +152,8 @@ static CGFloat padding = 20.0;
     @catch (NSException *exception) {
         senderLogin = sender;
     }
-
-   
+    
+    
 	NSString *message = [messageBody text];
 	NSString *time = [[messageBody datetime] description];
 	NSString *recipient = [messageBody recipientJID];
@@ -146,47 +169,80 @@ static CGFloat padding = 20.0;
 	cell.accessoryType = UITableViewCellAccessoryNone;
 	cell.userInteractionEnabled = NO;
 	
-    UIImage *bgImage = nil;
-
-    NSString *currentUserJid = [[QBChatService instance] jidFromUser:[QBUsersService currentUser]];
     
-    if ([sender isEqualToString:currentUserJid] || [recipient isEqualToString:currentUserJid]) {
-        if ([sender isEqualToString:currentUserJid]) { // left aligned
     
-            bgImage = [[UIImage imageNamed:@"orange.png"] stretchableImageWithLeftCapWidth:24  topCapHeight:15];
-    
-            [cell.messageContentView setFrame:CGRectMake(padding, padding*2, size.width+padding, size.height+padding)];
-    
-            [cell.bgImageView setFrame:CGRectMake( cell.messageContentView.frame.origin.x - padding/2, 
-                                                  cell.messageContentView.frame.origin.y - padding/2, 
-                                                  size.width+padding, 
-                                                  size.height+padding)];
-            
-            cell.senderAndTimeLabel.textAlignment = UITextAlignmentLeft;
-    
-        } else {
-    
-            bgImage = [[UIImage imageNamed:@"aqua.png"] stretchableImageWithLeftCapWidth:24  topCapHeight:15];
-        
-            [cell.messageContentView setFrame:CGRectMake(320 - size.width - padding, 
-                                                    padding*2, 
-                                                    size.width+padding, 
-                                                    size.height+padding)];
-        
-            [cell.bgImageView setFrame:CGRectMake(cell.messageContentView.frame.origin.x - padding/2, 
-                                            cell.messageContentView.frame.origin.y - padding/2, 
-                                            size.width+padding, 
-                                            size.height+padding)];
-            
-            cell.senderAndTimeLabel.textAlignment = UITextAlignmentRight;
-        }
-    }
+	NSString* chatRoomJID = [currentChatRoom getRoomName];
 	
+	NSRange range = [sender rangeOfString:@"/" options:NSCaseInsensitiveSearch];
+	
+	NSString *senderNotFull = sender;
+	if (range.location != NSNotFound){
+		senderNotFull = [sender substringWithRange: NSMakeRange(0, [sender rangeOfString: @"/"].location)];
+	}
+	
+    UIImage *bgImage = nil;
+	if ([senderNotFull isEqualToString:chatRoomJID]){
+		bgImage = [[UIImage imageNamed:@"orange.png"] stretchableImageWithLeftCapWidth:24  topCapHeight:15];
+		
+		[cell.messageContentView setFrame:CGRectMake(padding, padding*2, size.width+padding, size.height+padding)];
+		
+		[cell.bgImageView setFrame:CGRectMake( cell.messageContentView.frame.origin.x - padding/2, 
+											  cell.messageContentView.frame.origin.y - padding/2, 
+											  size.width+padding, 
+											  size.height+padding)];
+        
+        cell.senderAndTimeLabel.textAlignment = UITextAlignmentLeft;
+        
+    }else {
+        NSString *currentUserJid = [[QBChatService instance] jidFromUser:[QBUsersService currentUser]];
+        
+		if ([sender isEqualToString:currentUserJid] || [recipient isEqualToString:currentUserJid]) {
+			if ([sender isEqualToString:currentUserJid]) { // left aligned
+                
+				bgImage = [[UIImage imageNamed:@"orange.png"] stretchableImageWithLeftCapWidth:24  topCapHeight:15];
+                
+				[cell.messageContentView setFrame:CGRectMake(padding, padding*2, size.width+padding, size.height+padding)];
+                
+				[cell.bgImageView setFrame:CGRectMake( cell.messageContentView.frame.origin.x - padding/2, 
+													  cell.messageContentView.frame.origin.y - padding/2, 
+													  size.width+padding, 
+													  size.height+padding)];
+                
+                cell.senderAndTimeLabel.textAlignment = UITextAlignmentLeft;
+                
+			} else {
+                
+				bgImage = [[UIImage imageNamed:@"aqua.png"] stretchableImageWithLeftCapWidth:24  topCapHeight:15];
+                
+				[cell.messageContentView setFrame:CGRectMake(320 - size.width - padding, 
+                                                             padding*2, 
+                                                             size.width+padding, 
+                                                             size.height+padding)];
+                
+				[cell.bgImageView setFrame:CGRectMake(cell.messageContentView.frame.origin.x - padding/2, 
+                                                      cell.messageContentView.frame.origin.y - padding/2, 
+                                                      size.width+padding, 
+                                                      size.height+padding)];
+                
+                cell.senderAndTimeLabel.textAlignment = UITextAlignmentRight;
+			}
+		}
+	}
 	
 	cell.bgImageView.image = bgImage;
     
-
-    cell.senderAndTimeLabel.text = [NSString stringWithFormat:@"%@ %@", senderLogin, [[time description] substringToIndex:[time description].length-6]];
+    
+	if (currentChatRoom){
+		NSRange range = [sender rangeOfString:@"/" options:NSCaseInsensitiveSearch];
+		if (range.location != NSNotFound){
+			NSArray *myArray = [sender componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"/"]];
+			cell.senderAndTimeLabel.text = [NSString stringWithFormat:@"%@ %@", [myArray objectAtIndex:1], [[time description] substringToIndex:[time description].length-6]];
+		}else{
+			cell.senderAndTimeLabel.text = [NSString stringWithFormat:@"%@ %@", senderLogin, [[time description] substringToIndex:[time description].length-6]];
+		}
+	}else {
+		cell.senderAndTimeLabel.text = [NSString stringWithFormat:@"%@ %@", senderLogin, [[time description] substringToIndex:[time description].length-6]];
+	}
 	
 	return cell;
 }

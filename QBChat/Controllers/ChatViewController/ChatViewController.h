@@ -23,8 +23,10 @@
 @property (nonatomic, assign) IBOutlet UIToolbar *toolBar;
 
 @property (nonatomic, assign) QBUUser *userOpponent;
+@property (nonatomic, assign) QBChatRoom *currentChatRoom;
 
 - (void)back:(id)sender;
+- (void)leaveChat:(id)sender;
 - (IBAction)sendMessage:(id)sender;
 
 @end

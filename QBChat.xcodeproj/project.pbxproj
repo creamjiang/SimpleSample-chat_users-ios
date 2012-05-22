@@ -37,6 +37,7 @@
 		FAB38B06156B7D660026F697 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB38AF1156B7D660026F697 /* MainViewController.xib */; };
 		FAB38B07156B7D660026F697 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB38AF2156B7D660026F697 /* RegistrationViewController.xib */; };
 		FAB38B08156B7D660026F697 /* SplashController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB38AF3156B7D660026F697 /* SplashController.xib */; };
+		FAB38B1B156BC40D0026F697 /* OCPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB38B1A156BC40D0026F697 /* OCPromptView.m */; };
 		FAC310A7156B6FD10082B592 /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC310A6156B6FD10082B592 /* Quickblox.framework */; };
 		FAC310F1156B74440082B592 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC310F0156B74440082B592 /* libresolv.dylib */; };
 		FAC310F7156B75400082B592 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC310F6156B75400082B592 /* CoreData.framework */; };
@@ -85,6 +86,8 @@
 		FAB38AF1156B7D660026F697 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		FAB38AF2156B7D660026F697 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		FAB38AF3156B7D660026F697 /* SplashController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashController.xib; sourceTree = "<group>"; };
+		FAB38B19156BC40D0026F697 /* OCPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCPromptView.h; sourceTree = "<group>"; };
+		FAB38B1A156BC40D0026F697 /* OCPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCPromptView.m; sourceTree = "<group>"; };
 		FAC310A6156B6FD10082B592 /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quickblox.framework; path = "../SDK-ios/Framework/build/Framework/Quickblox.framework"; sourceTree = "<group>"; };
 		FAC310F0156B74440082B592 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		FAC310F6156B75400082B592 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -190,6 +193,7 @@
 		FAB38ACE156B7D660026F697 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAB38B18156BC40D0026F697 /* OCPromptView */,
 				FAB38ACF156B7D660026F697 /* SMMessageViewTableCell */,
 			);
 			path = Views;
@@ -294,6 +298,15 @@
 			path = xibs;
 			sourceTree = "<group>";
 		};
+		FAB38B18156BC40D0026F697 /* OCPromptView */ = {
+			isa = PBXGroup;
+			children = (
+				FAB38B19156BC40D0026F697 /* OCPromptView.h */,
+				FAB38B1A156BC40D0026F697 /* OCPromptView.m */,
+			);
+			path = OCPromptView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -375,6 +388,7 @@
 				FAB38AFA156B7D660026F697 /* RegistrationViewController.m in Sources */,
 				FAB38AFB156B7D660026F697 /* SplashController.m in Sources */,
 				FAB38AFD156B7D660026F697 /* main.m in Sources */,
+				FAB38B1B156BC40D0026F697 /* OCPromptView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
