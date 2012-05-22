@@ -15,8 +15,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A9A527A1542C2F200C85BE3"
                BuildableName = "SimpleSample-chat_users-ios.app"
-               BlueprintName = "Users"
-               ReferencedContainer = "container:Users.xcodeproj">
+               BlueprintName = "QBChat"
+               ReferencedContainer = "container:QBChat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,8 +33,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A9A527A1542C2F200C85BE3"
             BuildableName = "SimpleSample-chat_users-ios.app"
-            BlueprintName = "Users"
-            ReferencedContainer = "container:Users.xcodeproj">
+            BlueprintName = "QBChat"
+            ReferencedContainer = "container:QBChat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,8 +52,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A9A527A1542C2F200C85BE3"
             BuildableName = "SimpleSample-chat_users-ios.app"
-            BlueprintName = "Users"
-            ReferencedContainer = "container:Users.xcodeproj">
+            BlueprintName = "QBChat"
+            ReferencedContainer = "container:QBChat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -77,8 +77,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A9A527A1542C2F200C85BE3"
             BuildableName = "SimpleSample-chat_users-ios.app"
-            BlueprintName = "Users"
-            ReferencedContainer = "container:Users.xcodeproj">
+            BlueprintName = "QBChat"
+            ReferencedContainer = "container:QBChat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
