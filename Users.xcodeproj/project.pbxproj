@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A5D11BC1545788400EC947E /* libidn-1.15.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 8A5D11B91545788400EC947E /* libidn-1.15.tar.gz */; };
-		8A5D11BD1545788400EC947E /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5D11BA1545788400EC947E /* libidn.a */; };
-		8A5D11C2154581EE00EC947E /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE88DE2154300C9005CDAC5 /* libxml2.dylib */; };
-		8A5D11C41545820800EC947E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5D11C31545820800EC947E /* CoreData.framework */; };
-		8A7A83AA154A901800EE476D /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7A83A9154A901800EE476D /* libxml2.2.7.3.dylib */; };
 		8A9A52801542C2F200C85BE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A527F1542C2F200C85BE3 /* UIKit.framework */; };
 		8A9A52821542C2F200C85BE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A52811542C2F200C85BE3 /* Foundation.framework */; };
 		8A9A52841542C2F200C85BE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A52831542C2F200C85BE3 /* CoreGraphics.framework */; };
@@ -35,22 +30,18 @@
 		8AC441C41565093100FA8F2A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC441B11565093100FA8F2A /* LoginViewController.xib */; };
 		8AC441C61565093100FA8F2A /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC441B31565093100FA8F2A /* RegistrationViewController.xib */; };
 		8AC441C71565093100FA8F2A /* SplashController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC441B41565093100FA8F2A /* SplashController.xib */; };
-		8AE88DE5154300D3005CDAC5 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE88DE4154300D3005CDAC5 /* libresolv.dylib */; };
 		FA24257A156A8266004C7E13 /* SMMessageViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA242578156A8266004C7E13 /* SMMessageViewTableCell.m */; };
 		FA24257D156A8278004C7E13 /* DataStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA24257C156A8278004C7E13 /* DataStorage.m */; };
 		FA76F73E156690A100573080 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA76F73D156690A100573080 /* QuartzCore.framework */; };
-		FA794117156AE9810062838F /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA794116156AE9810062838F /* Quickblox.framework */; };
 		FA8183B8156A4295003F69DD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8183B7156A4295003F69DD /* MainViewController.m */; };
 		FA8183BA156A42A8003F69DD /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8183B9156A42A8003F69DD /* MainViewController.xib */; };
 		FA8183BE156A4383003F69DD /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8183BD156A4383003F69DD /* SplashController.m */; };
+		FAC310A7156B6FD10082B592 /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC310A6156B6FD10082B592 /* Quickblox.framework */; };
+		FAC310F1156B74440082B592 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC310F0156B74440082B592 /* libresolv.dylib */; };
+		FAC310F7156B75400082B592 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC310F6156B75400082B592 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A5D11B81545788400EC947E /* idn-int.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "idn-int.h"; sourceTree = "<group>"; };
-		8A5D11B91545788400EC947E /* libidn-1.15.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "libidn-1.15.tar.gz"; sourceTree = "<group>"; };
-		8A5D11BA1545788400EC947E /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libidn.a; sourceTree = "<group>"; };
-		8A5D11BB1545788400EC947E /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
-		8A5D11C31545820800EC947E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8A7A83A9154A901800EE476D /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		8A9A527B1542C2F200C85BE3 /* SimpleSample-chat_users-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SimpleSample-chat_users-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9A527F1542C2F200C85BE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -83,20 +74,19 @@
 		8AC441B11565093100FA8F2A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		8AC441B31565093100FA8F2A /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		8AC441B41565093100FA8F2A /* SplashController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashController.xib; sourceTree = "<group>"; };
-		8AE88DE0154300A3005CDAC5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		8AE88DE2154300C9005CDAC5 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		8AE88DE4154300D3005CDAC5 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		FA242577156A8266004C7E13 /* SMMessageViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageViewTableCell.h; sourceTree = "<group>"; };
 		FA242578156A8266004C7E13 /* SMMessageViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMessageViewTableCell.m; sourceTree = "<group>"; };
 		FA24257B156A8278004C7E13 /* DataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorage.h; sourceTree = "<group>"; };
 		FA24257C156A8278004C7E13 /* DataStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorage.m; sourceTree = "<group>"; };
 		FA76F73D156690A100573080 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		FA794116156AE9810062838F /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quickblox.framework; path = "../../SDK-ios/Framework/build/Framework/Quickblox.framework"; sourceTree = "<group>"; };
 		FA8183B6156A4295003F69DD /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		FA8183B7156A4295003F69DD /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		FA8183B9156A42A8003F69DD /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		FA8183BC156A4383003F69DD /* SplashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashController.h; sourceTree = "<group>"; };
 		FA8183BD156A4383003F69DD /* SplashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashController.m; sourceTree = "<group>"; };
+		FAC310A6156B6FD10082B592 /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quickblox.framework; path = "../SDK-ios/Framework/build/Framework/Quickblox.framework"; sourceTree = "<group>"; };
+		FAC310F0156B74440082B592 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
+		FAC310F6156B75400082B592 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FAD61B3D1566A41F00A11A04 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,11 +95,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC310F7156B75400082B592 /* CoreData.framework in Frameworks */,
+				FAC310F1156B74440082B592 /* libresolv.dylib in Frameworks */,
 				FA76F73E156690A100573080 /* QuartzCore.framework in Frameworks */,
-				8A7A83AA154A901800EE476D /* libxml2.2.7.3.dylib in Frameworks */,
-				8A5D11C41545820800EC947E /* CoreData.framework in Frameworks */,
-				8A5D11C2154581EE00EC947E /* libxml2.dylib in Frameworks */,
-				8AE88DE5154300D3005CDAC5 /* libresolv.dylib in Frameworks */,
 				8A9A52A71542C3E600C85BE3 /* libz.dylib in Frameworks */,
 				8A9A52A51542C3E100C85BE3 /* CoreLocation.framework in Frameworks */,
 				8A9A52841542C2F200C85BE3 /* CoreGraphics.framework in Frameworks */,
@@ -118,25 +106,13 @@
 				8A9A529F1542C3C600C85BE3 /* CFNetwork.framework in Frameworks */,
 				8A9A52801542C2F200C85BE3 /* UIKit.framework in Frameworks */,
 				8A9A52821542C2F200C85BE3 /* Foundation.framework in Frameworks */,
-				8A5D11BD1545788400EC947E /* libidn.a in Frameworks */,
-				FA794117156AE9810062838F /* Quickblox.framework in Frameworks */,
+				FAC310A7156B6FD10082B592 /* Quickblox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8A5D11B71545788400EC947E /* libidn */ = {
-			isa = PBXGroup;
-			children = (
-				8A5D11B81545788400EC947E /* idn-int.h */,
-				8A5D11B91545788400EC947E /* libidn-1.15.tar.gz */,
-				8A5D11BA1545788400EC947E /* libidn.a */,
-				8A5D11BB1545788400EC947E /* stringprep.h */,
-			);
-			path = libidn;
-			sourceTree = "<group>";
-		};
 		8A9A52701542C2F200C85BE3 = {
 			isa = PBXGroup;
 			children = (
@@ -159,14 +135,11 @@
 		8A9A527E1542C2F200C85BE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A5D11C31545820800EC947E /* CoreData.framework */,
-				8A5D11B71545788400EC947E /* libidn */,
-				8AE88DE4154300D3005CDAC5 /* libresolv.dylib */,
-				FA794116156AE9810062838F /* Quickblox.framework */,
+				FAC310F0156B74440082B592 /* libresolv.dylib */,
 				8A7A83A9154A901800EE476D /* libxml2.2.7.3.dylib */,
-				8AE88DE2154300C9005CDAC5 /* libxml2.dylib */,
-				8AE88DE0154300A3005CDAC5 /* Security.framework */,
 				8A9A52A61542C3E600C85BE3 /* libz.dylib */,
+				FAC310F6156B75400082B592 /* CoreData.framework */,
+				FAC310A6156B6FD10082B592 /* Quickblox.framework */,
 				FA76F73D156690A100573080 /* QuartzCore.framework */,
 				8A9A52A41542C3E100C85BE3 /* CoreLocation.framework */,
 				8A9A52A21542C3D300C85BE3 /* MobileCoreServices.framework */,
@@ -379,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A9A528A1542C2F200C85BE3 /* InfoPlist.strings in Resources */,
-				8A5D11BC1545788400EC947E /* libidn-1.15.tar.gz in Resources */,
 				8AC441BE1565093100FA8F2A /* aqua.png in Resources */,
 				8AC441BF1565093100FA8F2A /* Default.png in Resources */,
 				8AC441C01565093100FA8F2A /* icon.png in Resources */,
@@ -486,6 +458,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../SDK-ios/Framework/build/Framework\"",
+					"\"$(SRCROOT)/../SDK-ios/Framework/build/Framework\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -514,6 +487,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../SDK-ios/Framework/build/Framework\"",
+					"\"$(SRCROOT)/../SDK-ios/Framework/build/Framework\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

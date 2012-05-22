@@ -15,8 +15,6 @@
     #import <QuartzCore/QuartzCore.h>
 
 	#import "QBConsts.h"
-	#import "idn-int.h"
-	#import "stringprep.h"
     #import "Notifications.h"
     #import "DataStorage.h"
 #endif
