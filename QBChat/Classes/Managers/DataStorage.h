@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataStorage : NSObject
-
+@interface DataStorage : NSObject{
+}
 @property (nonatomic, copy) NSArray *users;
 
 + (DataStorage *) instance;
+
+// Messages cache methods
+- (void)addMessageToCache:(QBChatMessage *)message;
+- (NSArray *)cashedMessagesForOpponentOrRoomJID:(NSString *)opponentOrRoomJID;
 
 @end

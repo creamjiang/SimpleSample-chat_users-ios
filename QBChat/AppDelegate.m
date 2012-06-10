@@ -38,6 +38,8 @@
     [_mainViewController presentModalViewController:splashController animated:NO];
     [splashController release];
     
+    [QBSettings setLogLevel:QBLogLevelDebug];
+    
     return YES;
 }
 

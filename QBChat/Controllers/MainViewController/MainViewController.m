@@ -562,6 +562,9 @@
 			break;
 		}
 	}
+    
+    // save message to cache
+    [[DataStorage instance] addMessageToCache:message];
 }
 
 @end
