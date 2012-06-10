@@ -39,8 +39,7 @@
 
 - (IBAction)next:(id)sender
 {
-    QBUUser *qbUser = [[QBUUser alloc] init];
-    qbUser.ownerID = ownerID;        
+    QBUUser *qbUser = [[QBUUser alloc] init];      
     qbUser.login = login.text;
 	qbUser.password = password.text;
     

@@ -45,8 +45,7 @@
 {
 	 
     // Register user
-    QBUUser *user = [[QBUUser alloc] init];
-    user.ownerID = ownerID;        
+    QBUUser *user = [[QBUUser alloc] init];       
 	user.password = password.text;
     user.login = userName.text;
 	
