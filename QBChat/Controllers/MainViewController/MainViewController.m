@@ -61,10 +61,10 @@
 {
 	[super viewWillAppear:animated];
 	
-	[QBChatService instance].delegate = self;
+	[QBChat instance].delegate = self;
     
     // send presens every 30 sec
-    if([QBUsersService currentUser]){
+    if([DataStorage instance].currentUser){
         
         // send presence
         if(sendPresenceTimer == nil){
@@ -119,12 +119,12 @@
     // get users
 	[self retrieveUsers];
 	
-	[QBChatService instance].delegate = self;
+	[QBChat instance].delegate = self;
 }
 
 // send presence
 - (void)sendPresence{
-    [[QBChatService instance] sendPresence];
+    [[QBChat instance] sendPresence];
 }
 
 // retrieve all app users
@@ -133,14 +133,14 @@
     
     PagedRequest* request = [[PagedRequest alloc] init];
     request.perPage = 100;
-	[QBUsersService getUsersWithPagedRequest:request delegate:self];
+	[QBUsers usersWithPagedRequest:request delegate:self];
 	[request release];
 }
 
 // update rooms
 - (void)updateRooms
 {
-	[[QBChatService instance] requestAllRooms];
+	[[QBChat instance] requestAllRooms];
 }
 
 // Start Chat button action
@@ -148,7 +148,7 @@
 {
     
     // you must be loggedin for start chat
-    if ([QBUsersService currentUser] == nil){
+    if ([DataStorage instance].currentUser == nil){
 		UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"You must be logged in for this action"]
 																 delegate:self 
 														cancelButtonTitle:@"Cancel" 
@@ -206,10 +206,10 @@
         // create chat room and start group chat
     }else {
         // strat & join room
-		QBChatRoom* room = [[QBChatService instance] newRoomWithName:roomName];
+		QBChatRoom* room = [[QBChat instance] newRoomWithName:roomName];
 		[chatRooms addObject:room];
         [room release];
-		[[QBChatService instance] joinRoom:room];
+		[[QBChat instance] joinRoom:room];
         
         ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
         
@@ -408,7 +408,7 @@
 
 
 #pragma mark -
-#pragma mark ActionStatusDelegate
+#pragma mark QBActionStatusDelegate
 
 - (void)completedWithResult:(Result *)result
 {
@@ -562,9 +562,6 @@
 			break;
 		}
 	}
-    
-    // save message to cache
-    [[DataStorage instance] addMessageToCache:message];
 }
 
 @end

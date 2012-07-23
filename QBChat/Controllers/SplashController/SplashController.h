@@ -6,7 +6,7 @@
 //  Copyright 2011 QuickBlox. All rights reserved.
 //
 
-@interface SplashController : UIViewController <ActionStatusDelegate>{
+@interface SplashController : UIViewController <QBActionStatusDelegate>{
 }
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *wheel;
 

@@ -14,7 +14,6 @@
 	#import <Quickblox/Quickblox.h>
     #import <QuartzCore/QuartzCore.h>
 
-	#import "QBConsts.h"
     #import "Notifications.h"
     #import "DataStorage.h"
 #endif

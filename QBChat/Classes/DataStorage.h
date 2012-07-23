@@ -11,11 +11,8 @@
 @interface DataStorage : NSObject{
 }
 @property (nonatomic, copy) NSArray *users;
+@property (nonatomic, retain) QBUUser *currentUser;
 
 + (DataStorage *) instance;
-
-// Messages cache methods
-- (void)addMessageToCache:(QBChatMessage *)message;
-- (NSArray *)cashedMessagesForOpponentOrRoomJID:(NSString *)opponentOrRoomJID;
 
 @end

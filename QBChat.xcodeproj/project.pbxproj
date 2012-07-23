@@ -15,9 +15,9 @@
 		8A9A52A31542C3D300C85BE3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A52A21542C3D300C85BE3 /* MobileCoreServices.framework */; };
 		8A9A52A51542C3E100C85BE3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A52A41542C3E100C85BE3 /* CoreLocation.framework */; };
 		8A9A52A71542C3E600C85BE3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A52A61542C3E600C85BE3 /* libz.dylib */; };
+		FA62F9BB15BDD3400031CA59 /* DataStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62F9BA15BDD3400031CA59 /* DataStorage.m */; };
 		FA76F73E156690A100573080 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA76F73D156690A100573080 /* QuartzCore.framework */; };
 		FAB38AF4156B7D660026F697 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB38AC9156B7D660026F697 /* AppDelegate.m */; };
-		FAB38AF5156B7D660026F697 /* DataStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB38ACD156B7D660026F697 /* DataStorage.m */; };
 		FAB38AF6156B7D660026F697 /* SMMessageViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB38AD1156B7D660026F697 /* SMMessageViewTableCell.m */; };
 		FAB38AF7156B7D660026F697 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB38AD5156B7D660026F697 /* ChatViewController.m */; };
 		FAB38AF8156B7D660026F697 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB38AD8156B7D660026F697 /* LoginViewController.m */; };
@@ -54,12 +54,11 @@
 		8A9A52A21542C3D300C85BE3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8A9A52A41542C3E100C85BE3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8A9A52A61542C3E600C85BE3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		8A9A52AC1542C80100C85BE3 /* QBConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBConsts.h; sourceTree = "<group>"; };
+		FA62F9B915BDD3400031CA59 /* DataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorage.h; sourceTree = "<group>"; };
+		FA62F9BA15BDD3400031CA59 /* DataStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorage.m; sourceTree = "<group>"; };
 		FA76F73D156690A100573080 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FAB38AC8156B7D660026F697 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FAB38AC9156B7D660026F697 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FAB38ACC156B7D660026F697 /* DataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorage.h; sourceTree = "<group>"; };
-		FAB38ACD156B7D660026F697 /* DataStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorage.m; sourceTree = "<group>"; };
 		FAB38AD0156B7D660026F697 /* SMMessageViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageViewTableCell.h; sourceTree = "<group>"; };
 		FAB38AD1156B7D660026F697 /* SMMessageViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMessageViewTableCell.m; sourceTree = "<group>"; };
 		FAB38AD4156B7D660026F697 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
@@ -121,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				FAD61B3D1566A41F00A11A04 /* Notifications.h */,
-				8A9A52AC1542C80100C85BE3 /* QBConsts.h */,
 				FAB38AC7156B7D660026F697 /* QBChat */,
 				8A9A527E1542C2F200C85BE3 /* Frameworks */,
 				8A9A527C1542C2F200C85BE3 /* Products */,
@@ -175,19 +173,11 @@
 		FAB38ACA156B7D660026F697 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FAB38ACB156B7D660026F697 /* Managers */,
+				FA62F9B915BDD3400031CA59 /* DataStorage.h */,
+				FA62F9BA15BDD3400031CA59 /* DataStorage.m */,
 				FAB38ACE156B7D660026F697 /* Views */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		FAB38ACB156B7D660026F697 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				FAB38ACC156B7D660026F697 /* DataStorage.h */,
-				FAB38ACD156B7D660026F697 /* DataStorage.m */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		FAB38ACE156B7D660026F697 /* Views */ = {
@@ -380,7 +370,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB38AF4156B7D660026F697 /* AppDelegate.m in Sources */,
-				FAB38AF5156B7D660026F697 /* DataStorage.m in Sources */,
 				FAB38AF6156B7D660026F697 /* SMMessageViewTableCell.m in Sources */,
 				FAB38AF7156B7D660026F697 /* ChatViewController.m in Sources */,
 				FAB38AF8156B7D660026F697 /* LoginViewController.m in Sources */,
@@ -389,6 +378,7 @@
 				FAB38AFB156B7D660026F697 /* SplashController.m in Sources */,
 				FAB38AFD156B7D660026F697 /* main.m in Sources */,
 				FAB38B1B156BC40D0026F697 /* OCPromptView.m in Sources */,
+				FA62F9BB15BDD3400031CA59 /* DataStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

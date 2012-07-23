@@ -37,8 +37,10 @@
 
 - (void) viewDidLoad
 {
-    [QBAuthService authorizeAppId:appID key:authKey secret:authSecret delegate:self];
     [super viewDidLoad];
+    
+    // QuickBlox application authorization
+    [QBAuth createSessionWithDelegate:self];
 }
 
 - (void)hideSplash

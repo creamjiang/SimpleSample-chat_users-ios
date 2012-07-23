@@ -26,6 +26,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Set QuickBlox credentials (You must create application in admin.quickblox.com)
+    [QBSettings setApplicationID:92];
+    [QBSettings setAuthorizationKey:@"wJHdOcQSxXQGWx5"];
+    [QBSettings setAuthorizationSecret:@"BTFsj7Rtt27DAmT"];
+    //
+    // Additional setup
+    [QBSettings setRestAPIVersion:@"0.1.1"]; // version of server API
+    
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 

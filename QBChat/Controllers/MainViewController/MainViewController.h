@@ -15,7 +15,7 @@
 @class LoginViewController;
 @class RegistrationViewController;
 
-@interface MainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ActionStatusDelegate, UIActionSheetDelegate, UIAlertViewDelegate,QBChatServiceDelegate>{
+@interface MainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, QBActionStatusDelegate, UIActionSheetDelegate, UIAlertViewDelegate,QBChatDelegate>{
 
     NSMutableArray* selectedUsersIndexPathes;
     NSMutableArray* chatRooms;

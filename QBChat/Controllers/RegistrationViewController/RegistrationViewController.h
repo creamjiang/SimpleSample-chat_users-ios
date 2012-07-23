@@ -7,7 +7,7 @@
 //
 
 
-@interface RegistrationViewController : UIViewController <ActionStatusDelegate, UIAlertViewDelegate, UITextFieldDelegate> {
+@interface RegistrationViewController : UIViewController <QBActionStatusDelegate, UIAlertViewDelegate, UITextFieldDelegate> {
     UITextField *userName;
     UITextField *password;
     UITextField *retypePassword;

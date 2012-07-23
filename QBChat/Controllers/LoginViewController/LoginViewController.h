@@ -5,8 +5,9 @@
 //  Created by Igor Khomenko on 04.10.11.
 //  Copyright 2011 QuickBlox. All rights reserved.
 //
+#import "MainViewController.h"
 
-@interface LoginViewController : UIViewController <ActionStatusDelegate, UIAlertViewDelegate, UITextFieldDelegate> {    
+@interface LoginViewController : UIViewController <QBActionStatusDelegate, UIAlertViewDelegate, UITextFieldDelegate> {    
     UITextField *login;
     UITextField *password;
     UIActivityIndicatorView *activityIndicator;

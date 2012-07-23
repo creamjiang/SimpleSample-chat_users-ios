@@ -44,7 +44,7 @@
     // reload chat table
 	[chatTableView reloadData];
     
-	[QBChatService instance].delegate = self;
+	[QBChat instance].delegate = self;
 }
 
 - (void)viewDidLoad
@@ -88,7 +88,7 @@
     // this is Room
 	if (currentChatRoom){
         // send message to room
-		[[QBChatService instance] sendMessage:messageTextField.text toRoom:currentChatRoom];
+		[[QBChat instance] sendMessage:messageTextField.text toRoom:currentChatRoom];
         
 		messageTextField.text = nil;
 		[messageTextField resignFirstResponder];
@@ -96,12 +96,12 @@
         // tet a tet
     }else {
 		QBChatMessage* message = [[QBChatMessage alloc] init];
-		message.recipientJID = [[QBChatService instance] jidFromUser:userOpponent];
-		message.senderJID = [[QBChatService instance] jidFromUser:[QBUsersService currentUser]];;
+		message.recipientJID = [[QBChat instance] jidFromUser:userOpponent];
+		message.senderJID = [[QBChat instance] jidFromUser:[DataStorage instance].currentUser];
 		message.text = messageTextField.text;
 		
         // send message
-		[[QBChatService instance] sendMessage:message];
+		[[QBChat instance] sendMessage:message];
         
         messageTextField.text = nil;
 		[messageTextField resignFirstResponder];
@@ -122,7 +122,7 @@
 
 // Leave chat action
 - (void)leaveChat:(id)sender{
-	[[QBChatService instance] leaveRoom:currentChatRoom];
+	[[QBChat instance] leaveRoom:currentChatRoom];
     
 	[self dismissModalViewControllerAnimated:YES];
 }
@@ -194,7 +194,7 @@ static CGFloat padding = 20.0;
         cell.senderAndTimeLabel.textAlignment = UITextAlignmentLeft;
         
     }else {
-        NSString *currentUserJid = [[QBChatService instance] jidFromUser:[QBUsersService currentUser]];
+        NSString *currentUserJid = [[QBChat instance] jidFromUser:[DataStorage instance].currentUser];
         
 		if ([sender isEqualToString:currentUserJid] || [recipient isEqualToString:currentUserJid]) {
 			if ([sender isEqualToString:currentUserJid]) { // left aligned

@@ -13,14 +13,6 @@
 @synthesize password;
 @synthesize activityIndicator;
 
-- (void)dealloc
-{
-    [login release];
-    [password release];
-    [activityIndicator release];
-    [super dealloc];
-}
-
 - (void)viewDidUnload
 {
     [self setLogin:nil];
@@ -39,14 +31,8 @@
 
 - (IBAction)next:(id)sender
 {
-    QBUUser *qbUser = [[QBUUser alloc] init];      
-    qbUser.login = login.text;
-	qbUser.password = password.text;
-    
-    // authenticate
-    [QBUsersService authenticateUser:qbUser delegate:self];
-    
-    [qbUser release];
+     // Authenticate user
+    [QBUsers logInWithUserLogin:login.text password:password.text delegate:self context:password.text];
     
     [activityIndicator startAnimating];
 }
@@ -58,17 +44,21 @@
 
 
 #pragma mark -
-#pragma mark ActionStatusDelegate
+#pragma mark QBActionStatusDelegate
 
--(void)completedWithResult:(Result *)result
+-(void)completedWithResult:(Result *)result context:(void *)contextInfo
 {
-    if([result isKindOfClass:[QBUUserAuthenticateResult class]])
+    if([result isKindOfClass:[QBUUserLogInResult class]])
     {
-		QBUUserAuthenticateResult *res = (QBUUserAuthenticateResult *)result;
+		QBUUserLogInResult *res = (QBUUserLogInResult *)result;
 		if(res.success)
         {
             // Login to Chat
-			[[QBChatService instance] login];
+            res.user.password = (NSString *)contextInfo;
+			[[QBChat instance] loginWithUser:res.user];
+            
+            // save current user
+            [DataStorage instance].currentUser = res.user;
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Authentification successful" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alert show];
@@ -89,6 +79,9 @@
     }
     
     [activityIndicator stopAnimating];
+}
+
+-(void)completedWithResult:(Result*)result{
 }
 
 

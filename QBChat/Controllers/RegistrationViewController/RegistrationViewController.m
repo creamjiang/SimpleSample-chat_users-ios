@@ -45,14 +45,13 @@
 {
 	 
     // Register user
-    QBUUser *user = [[QBUUser alloc] init];       
+    QBUUser *user = [QBUUser user];       
 	user.password = password.text;
     user.login = userName.text;
 	
 	[activityIndicator startAnimating];
     
-	[QBUsersService createUser:user delegate:self];
-    [user release];
+	[QBUsers signUp:user delegate:self];
 }
 
 - (IBAction)back:(id)sender 
@@ -62,7 +61,7 @@
 
 
 #pragma mark -
-#pragma mark ActionStatusDelegate
+#pragma mark QBActionStatusDelegate
 
 -(void)completedWithResult:(Result*)result
 {
