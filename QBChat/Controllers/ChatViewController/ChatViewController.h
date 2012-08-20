@@ -13,7 +13,7 @@
 
 @class MainViewController;
 
-@interface ChatViewController : UIViewController <QBChatDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
+@interface ChatViewController : UIViewController <QBChatDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, QBActionStatusDelegate>
 {
     NSMutableArray* messages;
 }

@@ -132,7 +132,7 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     PagedRequest* request = [[PagedRequest alloc] init];
-    request.perPage = 100;
+    request.perPage = 5;
 	[QBUsers usersWithPagedRequest:request delegate:self];
 	[request release];
 }
@@ -146,7 +146,6 @@
 // Start Chat button action
 - (void)startChatAction:(id)sender
 {
-    
     // you must be loggedin for start chat
     if ([DataStorage instance].currentUser == nil){
 		UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"You must be logged in for this action"]
@@ -159,7 +158,6 @@
         
         return;
 	}
-	
     
     // if no one user has been choosed
 	if (![selectedUsersIndexPathes count]) {
@@ -209,7 +207,6 @@
 		QBChatRoom* room = [[QBChat instance] newRoomWithName:roomName];
 		[chatRooms addObject:room];
         [room release];
-		[[QBChat instance] joinRoom:room];
         
         ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
         

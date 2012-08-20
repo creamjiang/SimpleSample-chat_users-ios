@@ -93,7 +93,7 @@
 		messageTextField.text = nil;
 		[messageTextField resignFirstResponder];
         
-        // tet a tet
+    // tet a tet
     }else {
 		QBChatMessage* message = [[QBChatMessage alloc] init];
 		message.recipientJID = [[QBChat instance] jidFromUser:userOpponent];
@@ -110,6 +110,38 @@
 		[messages addObject:message];
         [message release];
 		[chatTableView reloadData];
+        
+        
+        // if user didn't do anything last 2 mins - hi offline -> send push to him
+        NSDate *nowDate = [NSDate date];
+        NSTimeInterval nowTime = [nowDate timeIntervalSince1970];
+        if(nowTime - [userOpponent.lastRequestAt timeIntervalSince1970] > 60*2){
+            
+            // Create message
+			NSString *mesage = messageTextField.text;
+			//
+			NSMutableDictionary *payload = [NSMutableDictionary dictionary];
+			NSMutableDictionary *aps = [NSMutableDictionary dictionary];
+			[aps setObject:@"default" forKey:QBMPushMessageSoundKey];
+			[aps setObject:mesage forKey:QBMPushMessageAlertKey];
+			[payload setObject:aps forKey:QBMPushMessageApsKey];
+			//
+			QBMPushMessage *message = [[QBMPushMessage alloc] initWithPayload:payload];
+			
+            BOOL isDevEnv = NO;
+#ifdef DEBUG
+            isDevEnv = YES;
+#endif
+            
+			// Send push
+			[QBMessages TSendPush:message
+                          toUsers:[NSString stringWithFormat:@"%d", userOpponent.ID]
+         isDevelopmentEnvironment:isDevEnv
+                         delegate:self];
+            
+            [message release];
+
+        }
 	}
 }
 
@@ -300,6 +332,15 @@ didReceiveMessage fired when new message was received from QBChatService
 - (void)chatDidFailWithError:(int)error
 {
 	NSLog(@"chatDidFailWithError, %d", error);
+}
+
+
+
+#pragma mark -
+#pragma mark QBActionStatusDelegate
+
+-(void)completedWithResult:(Result *)result{
+    
 }
 
 

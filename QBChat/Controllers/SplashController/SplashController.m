@@ -39,8 +39,13 @@
 {
     [super viewDidLoad];
     
+    // Create extended application authorization request (for push notifications)
+    QBASessionCreationRequest *extendedAuthRequest = [[QBASessionCreationRequest alloc] init];
+	extendedAuthRequest.devicePlatorm = DevicePlatformiOS;
+	extendedAuthRequest.deviceUDID = [[UIDevice currentDevice] uniqueIdentifier];
+    
     // QuickBlox application authorization
-    [QBAuth createSessionWithDelegate:self];
+	[QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self];
 }
 
 - (void)hideSplash
