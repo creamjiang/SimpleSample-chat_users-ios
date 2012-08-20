@@ -124,7 +124,11 @@
 
 // send presence
 - (void)sendPresence{
+    // presence in Chat
     [[QBChat instance] sendPresence];
+    
+    // presence in QB
+    [QBUsers userWithID:0 delegate:nil];
 }
 
 // retrieve all app users
@@ -201,16 +205,23 @@
         // show Chat controller
 		[self presentModalViewController:chatViewController animated:YES];
         
-        // create chat room and start group chat
+    // create chat room and start group chat
     }else {
         // strat & join room
 		QBChatRoom* room = [[QBChat instance] newRoomWithName:roomName];
-		[chatRooms addObject:room];
+        // add users to room
+        NSMutableArray *usersJids = [NSMutableArray array];
+        for(NSNumber *userNumber in selectedUsersIndexPathes){
+            int row = [userNumber intValue];
+            QBUUser *user = [[DataStorage instance].users objectAtIndex:row];
+            [usersJids addObject:[[QBChat instance] jidFromUser:user]];
+        }
+        [room addUsers:usersJids];
+		
+        [chatRooms addObject:room];
         [room release];
         
         ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
-        
-        // save room
 		chatViewController.currentChatRoom = room;
 		
         // show Chat controller

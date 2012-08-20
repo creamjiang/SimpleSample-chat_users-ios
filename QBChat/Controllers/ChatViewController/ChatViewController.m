@@ -339,8 +339,25 @@ didReceiveMessage fired when new message was received from QBChatService
 #pragma mark -
 #pragma mark QBActionStatusDelegate
 
+// QuickBlox API queries delegate
 -(void)completedWithResult:(Result *)result{
-    
+    // QuickBlox send push result
+    if([result isKindOfClass:[QBMSendPushTaskResult class]]){
+        
+        // Success result
+        if(result.success){
+
+        // show Errors
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Errors"
+                                                            message:[result.errors description]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles: nil];
+            [alert show];
+            [alert release];
+        }
+    }
 }
 
 
