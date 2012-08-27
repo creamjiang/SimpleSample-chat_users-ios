@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4316C25715EBB1C800F41BEB /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316C25615EBB1C800F41BEB /* Quickblox.framework */; };
+		4316C25C15EBB22F00F41BEB /* offLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316C25815EBB22F00F41BEB /* offLine.png */; };
+		4316C25D15EBB22F00F41BEB /* offLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316C25915EBB22F00F41BEB /* offLine@2x.png */; };
+		4316C25E15EBB22F00F41BEB /* onLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316C25A15EBB22F00F41BEB /* onLine.png */; };
+		4316C25F15EBB22F00F41BEB /* onLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316C25B15EBB22F00F41BEB /* onLine@2x.png */; };
 		8A9A52801542C2F200C85BE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A527F1542C2F200C85BE3 /* UIKit.framework */; };
 		8A9A52821542C2F200C85BE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A52811542C2F200C85BE3 /* Foundation.framework */; };
 		8A9A52841542C2F200C85BE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9A52831542C2F200C85BE3 /* CoreGraphics.framework */; };
@@ -44,6 +49,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4316C25615EBB1C800F41BEB /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
+		4316C25815EBB22F00F41BEB /* offLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offLine.png; sourceTree = "<group>"; };
+		4316C25915EBB22F00F41BEB /* offLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offLine@2x.png"; sourceTree = "<group>"; };
+		4316C25A15EBB22F00F41BEB /* onLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onLine.png; sourceTree = "<group>"; };
+		4316C25B15EBB22F00F41BEB /* onLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "onLine@2x.png"; sourceTree = "<group>"; };
 		8A7A83A9154A901800EE476D /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		8A9A527B1542C2F200C85BE3 /* SimpleSample-chat_users-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SimpleSample-chat_users-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9A527F1542C2F200C85BE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -110,6 +120,7 @@
 				8A9A52801542C2F200C85BE3 /* UIKit.framework in Frameworks */,
 				8A9A52821542C2F200C85BE3 /* Foundation.framework in Frameworks */,
 				FAC310A7156B6FD10082B592 /* Quickblox.framework in Frameworks */,
+				4316C25715EBB1C800F41BEB /* Quickblox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +148,7 @@
 		8A9A527E1542C2F200C85BE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4316C25615EBB1C800F41BEB /* Quickblox.framework */,
 				FAC310F0156B74440082B592 /* libresolv.dylib */,
 				8A7A83A9154A901800EE476D /* libxml2.2.7.3.dylib */,
 				8A9A52A61542C3E600C85BE3 /* libz.dylib */,
@@ -272,6 +284,10 @@
 				FAB38AEB156B7D660026F697 /* icon.png */,
 				FAB38AEC156B7D660026F697 /* logo.png */,
 				FAB38AED156B7D660026F697 /* orange.png */,
+				4316C25815EBB22F00F41BEB /* offLine.png */,
+				4316C25915EBB22F00F41BEB /* offLine@2x.png */,
+				4316C25A15EBB22F00F41BEB /* onLine.png */,
+				4316C25B15EBB22F00F41BEB /* onLine@2x.png */,
 			);
 			path = pictures;
 			sourceTree = "<group>";
@@ -359,6 +375,10 @@
 				FAB38B06156B7D660026F697 /* MainViewController.xib in Resources */,
 				FAB38B07156B7D660026F697 /* RegistrationViewController.xib in Resources */,
 				FAB38B08156B7D660026F697 /* SplashController.xib in Resources */,
+				4316C25C15EBB22F00F41BEB /* offLine.png in Resources */,
+				4316C25D15EBB22F00F41BEB /* offLine@2x.png in Resources */,
+				4316C25E15EBB22F00F41BEB /* onLine.png in Resources */,
+				4316C25F15EBB22F00F41BEB /* onLine@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

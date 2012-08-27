@@ -22,6 +22,14 @@
     
     NSTimer *sendPresenceTimer; 
     NSTimer *requestRoomsTimer;
+    NSTimer *checkPrecenceTimer;
+    
+    UIImage *presenceStatusOffLine;
+    UIImage *presenceStatusOnLine;
+    
+    NSMutableArray *images;
+    
+    int numberOfPeople;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *usersAndRoomsTableView;

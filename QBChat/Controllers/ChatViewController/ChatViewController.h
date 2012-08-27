@@ -16,6 +16,8 @@
 @interface ChatViewController : UIViewController <QBChatDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, QBActionStatusDelegate>
 {
     NSMutableArray* messages;
+    NSString *key;
+    NSUserDefaults *standardUserDefaults;
 }
 
 @property (nonatomic, assign) IBOutlet UITextField* messageTextField;
@@ -29,4 +31,5 @@
 - (void)leaveChat:(id)sender;
 - (IBAction)sendMessage:(id)sender;
 
+- (id)initWithOpponent:(QBUUser *)opponent;
 @end

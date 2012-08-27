@@ -29,6 +29,27 @@
 	return self;
 }
 
+- (id)initWithOpponent:(QBUUser *)opponent
+{
+	self = [super init];
+	if (self){
+        
+        userOpponent = opponent;
+        //============ massages init ============
+        
+        key = [[NSString alloc] initWithFormat:@"%d%d", [DataStorage instance].currentUser.ID, userOpponent.ID];
+        
+        standardUserDefaults = [NSUserDefaults standardUserDefaults];
+        
+        if([NSKeyedUnarchiver unarchiveObjectWithData:[standardUserDefaults objectForKey:key]]){
+            messages = [[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:[standardUserDefaults objectForKey:key]]];
+        }else{
+            messages = [[NSMutableArray alloc] init];
+        }
+	}
+	return self;
+}
+
 - (void)dealloc
 {
     
@@ -111,6 +132,9 @@
         [message release];
 		[chatTableView reloadData];
         
+        NSData *serializedObject = [NSKeyedArchiver archivedDataWithRootObject:messages];
+        [standardUserDefaults setObject:serializedObject forKey:key];
+        [standardUserDefaults synchronize];
         
         // if user didn't do anything last 2 mins - hi offline -> send push to him
         NSDate *nowDate = [NSDate date];
@@ -307,6 +331,14 @@ didReceiveMessage fired when new message was received from QBChatService
 {
     // add message to table
 	[messages addObject:message];
+    
+    if (key) {
+        
+        NSData *serializedObject = [NSKeyedArchiver archivedDataWithRootObject:messages];
+        [standardUserDefaults setObject:serializedObject forKey:key];
+        [standardUserDefaults synchronize];
+    }
+
     
     // reload table
 	[chatTableView reloadData];

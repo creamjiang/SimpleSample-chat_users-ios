@@ -38,6 +38,9 @@
     
     [sendPresenceTimer release];
 
+    [images release];
+    [checkPrecenceTimer release];
+    
 	[super dealloc];
 }
 
@@ -48,6 +51,27 @@
     usersAndRoomsTableView.layer.borderColor = [[UIColor grayColor] CGColor];
     usersAndRoomsTableView.layer.borderWidth = 1;
     usersAndRoomsTableView.layer.cornerRadius = 10;
+    
+    presenceStatusOffLine = [[UIImage imageNamed:@"offLine.png"] retain];
+    presenceStatusOnLine = [[UIImage imageNamed:@"onLine.png"] retain];
+    
+    images = [[NSMutableArray alloc] init];
+    
+    numberOfPeople = 80;
+    
+    for(int i = 0; i < numberOfPeople; i++)
+    {
+        UIImageView *onlineBadge;
+        onlineBadge = [[UIImageView alloc] initWithFrame:CGRectMake(285, 18, 9, 9)];
+        
+        [onlineBadge setImage:presenceStatusOffLine];
+        
+        [images addObject:onlineBadge];
+        
+        [onlineBadge release];
+    }
+    
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(qbApplicationDidAuth) name:kQBApplicationDidAuth object:nil];
 }
@@ -68,9 +92,17 @@
         
         // send presence
         if(sendPresenceTimer == nil){
-            sendPresenceTimer = [[NSTimer scheduledTimerWithTimeInterval:30 
+            sendPresenceTimer = [[NSTimer scheduledTimerWithTimeInterval:30
                                                                   target:self 
                                                                 selector:@selector(sendPresence) 
+                                                                userInfo:nil 
+                                                                 repeats:YES] retain];
+        }
+        
+        if(checkPrecenceTimer == nil){
+            checkPrecenceTimer= [[NSTimer scheduledTimerWithTimeInterval:5
+                                                                  target:self 
+                                                                selector:@selector(checkPresence)
                                                                 userInfo:nil 
                                                                  repeats:YES] retain];
         }
@@ -84,7 +116,7 @@
                                                                 repeats:YES] retain];
             [self updateRooms];
         }
-
+        
     }
 }
 
@@ -136,7 +168,7 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     PagedRequest* request = [[PagedRequest alloc] init];
-    request.perPage = 5;
+    request.perPage = numberOfPeople;
 	[QBUsers usersWithPagedRequest:request delegate:self];
 	[request release];
 }
@@ -199,8 +231,7 @@
         // save opponent
         int row = [[selectedUsersIndexPathes objectAtIndex:0] intValue];
         
-        ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
-        chatViewController.userOpponent = [[DataStorage instance].users objectAtIndex:row];
+        ChatViewController *chatViewController = [[[ChatViewController alloc] initWithOpponent:[[DataStorage instance].users objectAtIndex:row]] autorelease];
         
         // show Chat controller
 		[self presentModalViewController:chatViewController animated:YES];
@@ -308,6 +339,8 @@
         }else{
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
+        
+        [cell.contentView addSubview:[images objectAtIndex:[indexPath row]]];
         
 		return cell;
 	}
@@ -570,6 +603,30 @@
 			break;
 		}
 	}
+}
+
+- (void)chatDidReceivePresenceOfUser:(NSString *)jid{
+    
+    for(int i = 0; i < numberOfPeople; i++)
+    {
+        QBUUser *user = [[DataStorage instance].users objectAtIndex:i];
+        
+        if([jid isEqualToString:[[QBChat instance] jidFromUser:user]])
+        {
+            [[images objectAtIndex:i] setImage:presenceStatusOnLine];
+            break;
+        }
+    }
+}
+
+-(void) checkPresence
+{
+    for(int i = 0; i < numberOfPeople; i++)
+    {
+        QBUUser *user = [[DataStorage instance].users objectAtIndex:i];
+        [[QBChat instance] requestUserForPresence: [[QBChat instance] jidFromUser:user]];
+        [[images objectAtIndex:i] setImage:presenceStatusOffLine];
+    }
 }
 
 @end
