@@ -22,6 +22,7 @@
 
 @property (nonatomic, retain) NSMutableArray *users;
 @property (nonatomic, retain) NSMutableArray *selectedUsers;
+@property (nonatomic, retain) NSMutableArray *senderUsers;
 
 @property (retain, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;

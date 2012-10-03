@@ -20,6 +20,7 @@
 @synthesize tableView;
 @synthesize searchBar;
 @synthesize selectedUsers;
+@synthesize senderUsers;
 
 #pragma mark -
 #pragma mark View controller's lifecycle
@@ -29,8 +30,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.users     = [[[NSMutableArray alloc] init] autorelease];
-        self.selectedUsers   = [[[NSMutableArray alloc] init] autorelease];
+        self.users         = [[[NSMutableArray alloc] init] autorelease];
+        self.selectedUsers = [[[NSMutableArray alloc] init] autorelease];
+        self.senderUsers   = [[[NSMutableArray alloc] init] autorelease];
     }
     return self;
 }
@@ -192,6 +194,7 @@
         ChatViewController *chatViewController = [[ChatViewController alloc] init];
         QBUUser *opponent = [self.selectedUsers objectAtIndex:0];
         [self.selectedUsers removeAllObjects];
+        [self.senderUsers removeAllObjects];
         [chatViewController setTitle:opponent.login ? opponent.login : opponent.fullName];
         [chatViewController setOpponent:opponent];
         [self.navigationController pushViewController:chatViewController animated:YES];
@@ -246,6 +249,12 @@
     // Mark/unmark users
     }else {
         QBUUser *selectedUser = [self.users objectAtIndex:indexPath.row];
+        
+        if([self.senderUsers containsObject:selectedUser]){
+            [self.senderUsers removeObject:selectedUser];
+            [self.tableView reloadData];
+        }
+        
         if(![self.selectedUsers containsObject:selectedUser]){
             [self.selectedUsers addObject:selectedUser];
             [self.tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
@@ -327,6 +336,19 @@
     return 44;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    QBUUser *user = [self.users objectAtIndex:indexPath.row];
+    
+    UIColor *color = [UIColor colorWithRed:176.0/255.0 green:226.0/255.0 blue:255.0/255.0 alpha:1];
+    
+    if([self.senderUsers containsObject:user]){
+        [cell setBackgroundColor:color];
+        [[(UserTableViewCell *)cell text] setBackgroundColor:color];
+    }else {
+        [cell setBackgroundColor:[UIColor clearColor]];
+        [[(UserTableViewCell *)cell text] setBackgroundColor:[UIColor clearColor]];
+    }
+}
 
 #pragma mark -
 #pragma mark UISearchBarDelegate
@@ -387,6 +409,9 @@
                     // Join room
                     [selectedRoom joinRoom];
                     
+                    [self.senderUsers removeAllObjects];
+                    [self.selectedUsers removeAllObjects];
+                    
                     // Show Chat view controller
                     ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
                     [chatViewController setTitle:[selectedRoom name]];
@@ -434,6 +459,15 @@
 
 // Did receive 1-1 message
 - (void)chatDidReceiveMessage:(QBChatMessage *)message{
+    
+    for(QBUUser *user in [[DataManager shared] users]){
+        if(message.senderID == user.ID && ![self.senderUsers containsObject:user]){
+            [self.senderUsers addObject:user];
+            NSLog(@"\n\n\n\t\t\t chatDidReceiveMessage senderUsers -> %@\n\n\n", senderUsers);
+            [self.tableView reloadData];
+        }
+    }
+    
 }
 
 // Called in case receiving list of avaible to join rooms.
@@ -471,6 +505,9 @@
     [room addUsers:userIDs];
     
     [userIDs release];
+    
+    [self.senderUsers removeAllObjects];
+    [self.selectedUsers removeAllObjects];
     
     // show chat view controller
     ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
