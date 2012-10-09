@@ -7,6 +7,7 @@
 //
 
 #import "SplashViewController.h"
+#import "MainViewController.h"
 
 @interface SplashViewController ()
 
@@ -14,6 +15,7 @@
 
 @implementation SplashViewController
 @synthesize activityIndicator;
+@synthesize delegate;
 
 - (void)viewDidLoad
 {
@@ -27,6 +29,12 @@
 	extendedAuthRequest.deviceUDID = [[UIDevice currentDevice] uniqueIdentifier];
     
 	[QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self];
+    
+    if(IS_IPHONE_5){
+        CGRect frame = self.activityIndicator.frame;
+        frame.origin.y += 44;
+        [self.activityIndicator setFrame:frame];
+    }
 }
 
 -(void)hideSplash{
@@ -35,6 +43,7 @@
 
 - (void)viewDidUnload
 {
+    [self setDelegate:nil];
     [self setActivityIndicator:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -46,6 +55,7 @@
 }
 
 - (void)dealloc {
+    [delegate release];
     [activityIndicator release];
     [super dealloc];
 }
@@ -62,6 +72,17 @@
         
         // Success result
         if(result.success){
+            
+            // retrieve all users periodicaly
+            if(((MainViewController *)self.delegate).requesAllUsersTimer == nil){
+                
+                ((MainViewController *)self.delegate).requesAllUsersTimer= [[NSTimer scheduledTimerWithTimeInterval:120
+                                                                                                             target:self.delegate
+                                                                                                           selector:@selector(updateUsers)
+                                                                                                           userInfo:nil
+                                                                                                            repeats:YES] retain];
+                [((MainViewController *)self.delegate).requesAllUsersTimer fire];
+            }
             
             // hide splash
             [self performSelector:@selector(hideSplash) withObject:nil afterDelay:0.5];

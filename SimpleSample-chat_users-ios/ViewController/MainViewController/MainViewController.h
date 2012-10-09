@@ -20,6 +20,8 @@
     NSTimer *requesAllUsersTimer;
 }
 
+@property (nonatomic, retain) NSTimer *requesAllUsersTimer;
+
 @property (nonatomic, retain) NSMutableArray *users;
 @property (nonatomic, retain) NSMutableArray *selectedUsers;
 @property (nonatomic, retain) NSMutableArray *senderUsers;

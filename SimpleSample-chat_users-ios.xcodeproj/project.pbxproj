@@ -41,8 +41,10 @@
 		43774BE8160893D500DDBF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43774BE6160893D500DDBF12 /* InfoPlist.strings */; };
 		43774BEA160893D500DDBF12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43774BE9160893D500DDBF12 /* main.m */; };
 		43774BEE160893D500DDBF12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43774BED160893D500DDBF12 /* AppDelegate.m */; };
+		438E55D8162411FA00235A0D /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E55D7162411FA00235A0D /* Quickblox.framework */; };
 		43D7F0FF161B300700DA7402 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D7F0FE161B300700DA7402 /* Default-568h@2x.png */; };
 		43EB039F1609BC2000A330FB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EB039E1609BC2000A330FB /* pin.png */; };
+		43EB46A816241D4F00A88FF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EB46A716241D4F00A88FF1 /* Default-568h@2x.png */; };
 		FAC54D3A1616FA0300A12A20 /* ChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC54D391616FA0300A12A20 /* ChatMessageTableViewCell.m */; };
 		FAC54D3D1616FA2700A12A20 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC54D3C1616FA2700A12A20 /* UserTableViewCell.m */; };
 		FAC54D441616FCC900A12A20 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC54D431616FCC900A12A20 /* DataManager.m */; };
@@ -95,8 +97,10 @@
 		43774BEB160893D500DDBF12 /* SimpleSample-chat_users-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleSample-chat_users-ios-Prefix.pch"; sourceTree = "<group>"; };
 		43774BEC160893D500DDBF12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		43774BED160893D500DDBF12 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		438E55D7162411FA00235A0D /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
 		43D7F0FE161B300700DA7402 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		43EB039E1609BC2000A330FB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		43EB46A716241D4F00A88FF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FAC54D381616FA0300A12A20 /* ChatMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageTableViewCell.h; sourceTree = "<group>"; };
 		FAC54D391616FA0300A12A20 /* ChatMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageTableViewCell.m; sourceTree = "<group>"; };
 		FAC54D3B1616FA2700A12A20 /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				43774BDE160893D500DDBF12 /* UIKit.framework in Frameworks */,
 				43774BE0160893D500DDBF12 /* Foundation.framework in Frameworks */,
 				43774BE2160893D500DDBF12 /* CoreGraphics.framework in Frameworks */,
+				438E55D8162411FA00235A0D /* Quickblox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +202,7 @@
 		434E9CA116089BDC00A4FB2D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				43EB46A716241D4F00A88FF1 /* Default-568h@2x.png */,
 				FAC54D5F16170C3200A12A20 /* sendButton.png */,
 				FAC54D6016170C3200A12A20 /* sendButton@2x.png */,
 				4374372E160C5E93006BAFCF /* room-icon.png */,
@@ -258,6 +264,7 @@
 		43774BDC160893D500DDBF12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				438E55D7162411FA00235A0D /* Quickblox.framework */,
 				434E9CD61608A06F00A4FB2D /* CoreData.framework */,
 				434E9CD41608A06300A4FB2D /* CoreLocation.framework */,
 				434E9CD21608A05800A4FB2D /* MobileCoreServices.framework */,
@@ -381,6 +388,7 @@
 				FAC54D6216170C3200A12A20 /* sendButton@2x.png in Resources */,
 				FAC54D8F161748AE00A12A20 /* RegistrationViewController.xib in Resources */,
 				43D7F0FF161B300700DA7402 /* Default-568h@2x.png in Resources */,
+				43EB46A816241D4F00A88FF1 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,8 +499,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../workspace/ios-qb-samples/SDK-ios/Framework/build/Framework\"",
-					"\"$(SRCROOT)/../SDK-ios/Framework/build/Framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleSample-chat_users-ios/SimpleSample-chat_users-ios-Prefix.pch";
@@ -516,8 +522,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../workspace/ios-qb-samples/SDK-ios/Framework/build/Framework\"",
-					"\"$(SRCROOT)/../SDK-ios/Framework/build/Framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleSample-chat_users-ios/SimpleSample-chat_users-ios-Prefix.pch";

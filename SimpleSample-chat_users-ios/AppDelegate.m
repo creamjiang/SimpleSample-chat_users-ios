@@ -45,6 +45,7 @@
     
     // Show Splash
     SplashViewController *splashViewController = [[SplashViewController alloc] init];
+    [splashViewController setDelegate:mainViewController];
     [self.navigationController presentModalViewController:splashViewController animated:NO];
     [splashViewController release];
     

@@ -22,6 +22,8 @@
 @synthesize selectedUsers;
 @synthesize senderUsers;
 
+@synthesize requesAllUsersTimer;
+
 #pragma mark -
 #pragma mark View controller's lifecycle
 
@@ -56,14 +58,6 @@
     [self.toolBar setItems:items animated:NO];
     [loginItem release];
     [registerItem release];
-    
-    // retrieve all users periodicaly
-    requesAllUsersTimer= [[NSTimer scheduledTimerWithTimeInterval:120
-                                                           target:self
-                                                         selector:@selector(updateUsers)
-                                                         userInfo:nil
-                                                          repeats:YES] retain];
-    [requesAllUsersTimer fire];
 
 }
 
@@ -71,8 +65,7 @@
     [self setToolBar:nil];
     [self setTableView:nil];
     [self setSearchBar:nil];
-    
-    [requesAllUsersTimer release];
+    [self setRequesAllUsersTimer:nil];
     
     [super viewDidUnload];
 }
@@ -110,7 +103,6 @@
     
     // Set Chat delegate
     [QBChat instance].delegate = self;
-    
     
     // send presence every 10 seconds & check for new rooms
     if([DataManager shared].currentUser){
