@@ -49,16 +49,6 @@
     
     // set chat delegate
     [[QBChat instance] setDelegate:self];
-    
-    if(IS_IPHONE_5){
-        CGRect frame = self.sendMessageButton.frame;
-        frame.origin.y += 88;
-        [self.sendMessageButton setFrame:frame];
-        
-        frame = self.sendMessageField.frame;
-        frame.origin.y += 88;
-        [self.sendMessageField setFrame:frame];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

@@ -42,7 +42,6 @@
 		43774BEA160893D500DDBF12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43774BE9160893D500DDBF12 /* main.m */; };
 		43774BEE160893D500DDBF12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43774BED160893D500DDBF12 /* AppDelegate.m */; };
 		438E55D8162411FA00235A0D /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E55D7162411FA00235A0D /* Quickblox.framework */; };
-		43D7F0FF161B300700DA7402 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D7F0FE161B300700DA7402 /* Default-568h@2x.png */; };
 		43EB039F1609BC2000A330FB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EB039E1609BC2000A330FB /* pin.png */; };
 		43EB46A816241D4F00A88FF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EB46A716241D4F00A88FF1 /* Default-568h@2x.png */; };
 		FAC54D3A1616FA0300A12A20 /* ChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC54D391616FA0300A12A20 /* ChatMessageTableViewCell.m */; };
@@ -98,7 +97,6 @@
 		43774BEC160893D500DDBF12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		43774BED160893D500DDBF12 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		438E55D7162411FA00235A0D /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
-		43D7F0FE161B300700DA7402 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		43EB039E1609BC2000A330FB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		43EB46A716241D4F00A88FF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FAC54D381616FA0300A12A20 /* ChatMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageTableViewCell.h; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 		43774BCE160893D500DDBF12 = {
 			isa = PBXGroup;
 			children = (
-				43D7F0FE161B300700DA7402 /* Default-568h@2x.png */,
 				43774BE3160893D500DDBF12 /* SimpleSample-chat_users-ios */,
 				434E9C9F16089B2600A4FB2D /* Resources */,
 				43774BDC160893D500DDBF12 /* Frameworks */,
@@ -387,7 +384,6 @@
 				FAC54D6116170C3200A12A20 /* sendButton.png in Resources */,
 				FAC54D6216170C3200A12A20 /* sendButton@2x.png in Resources */,
 				FAC54D8F161748AE00A12A20 /* RegistrationViewController.xib in Resources */,
-				43D7F0FF161B300700DA7402 /* Default-568h@2x.png in Resources */,
 				43EB46A816241D4F00A88FF1 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

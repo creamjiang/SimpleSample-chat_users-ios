@@ -30,7 +30,7 @@
     
 	[QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self];
     
-    if(IS_IPHONE_5){
+    if(IS_HEIGHT_GTE_568){
         CGRect frame = self.activityIndicator.frame;
         frame.origin.y += 44;
         [self.activityIndicator setFrame:frame];
@@ -76,11 +76,11 @@
             // retrieve all users periodicaly
             if(((MainViewController *)self.delegate).requesAllUsersTimer == nil){
                 
-                ((MainViewController *)self.delegate).requesAllUsersTimer= [[NSTimer scheduledTimerWithTimeInterval:120
+                ((MainViewController *)self.delegate).requesAllUsersTimer= [NSTimer scheduledTimerWithTimeInterval:120
                                                                                                              target:self.delegate
                                                                                                            selector:@selector(updateUsers)
                                                                                                            userInfo:nil
-                                                                                                            repeats:YES] retain];
+                                                                                                            repeats:YES];
                 [((MainViewController *)self.delegate).requesAllUsersTimer fire];
             }
             

@@ -14,13 +14,6 @@
     #import <Quickblox/Quickblox.h>
     #import "DataManager.h"
 
-    #define IS_IPHONE ( [[[UIDevice currentDevice] model] isEqualToString:@"iPhone"] )
-    #define IS_IPHONE_SIMULATOR ( [[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"] )
-    #define IS_IPOD   ( [[[UIDevice currentDevice ] model] isEqualToString:@"iPod touch"] )
     #define IS_HEIGHT_GTE_568 [[UIScreen mainScreen ] bounds].size.height >= 568.0f
-    #define IS_IPHONE_5 (( IS_IPHONE && IS_HEIGHT_GTE_568 ) || (IS_IPHONE_SIMULATOR && IS_HEIGHT_GTE_568))
-
-    #define IS_IOS_6 ( [[[UIDevice currentDevice] systemVersion] isEqualToString:@"6.0"] )
-
 #endif
 
