@@ -77,10 +77,10 @@
             if(((MainViewController *)self.delegate).requesAllUsersTimer == nil){
                 
                 ((MainViewController *)self.delegate).requesAllUsersTimer= [NSTimer scheduledTimerWithTimeInterval:120
-                                                                                                             target:self.delegate
-                                                                                                           selector:@selector(updateUsers)
-                                                                                                           userInfo:nil
-                                                                                                            repeats:YES];
+                                                                                                            target:self.delegate
+                                                                                                          selector:@selector(updateUsers)
+                                                                                                          userInfo:nil
+                                                                                                           repeats:YES];
                 [((MainViewController *)self.delegate).requesAllUsersTimer fire];
             }
             

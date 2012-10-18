@@ -329,16 +329,25 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    QBUUser *user = [self.users objectAtIndex:indexPath.row];
     
-    UIColor *color = [UIColor colorWithRed:176.0/255.0 green:226.0/255.0 blue:255.0/255.0 alpha:1];
+    NSLog(@"\n\n\n\t\t\t row                   = %d \n\n\n", indexPath.row);
+    NSLog(@"\n\n\n\t\t\t section               = %d \n\n\n", indexPath.section);
+    NSLog(@"\n\n\n\t\t\t %d \n\n\n", [self.users count]);
+    NSLog(@"\n\n\n\t\t\t numberOfRowsInSection = %d \n\n\n", [self.tableView numberOfRowsInSection:indexPath.section]);
+    NSLog(@"\n\n\n\t\t\t numberOfSections      = %d \n\n\n", self.tableView.numberOfSections);
     
-    if([self.senderUsers containsObject:user]){
-        [cell setBackgroundColor:color];
-        [[(UserTableViewCell *)cell text] setBackgroundColor:color];
-    }else {
-        [cell setBackgroundColor:[UIColor clearColor]];
-        [[(UserTableViewCell *)cell text] setBackgroundColor:[UIColor clearColor]];
+    if(indexPath.section == (self.tableView.numberOfSections - 1) && [self.users count]){
+        QBUUser *user = [self.users objectAtIndex:indexPath.row];
+    
+        UIColor *color = [UIColor colorWithRed:176.0/255.0 green:226.0/255.0 blue:255.0/255.0 alpha:1];
+    
+        if([self.senderUsers containsObject:user] && (!self.tableView.numberOfSections || (self.tableView.numberOfSections ))){
+            [cell setBackgroundColor:color];
+            [[(UserTableViewCell *)cell text] setBackgroundColor:color];
+        }else {
+            [cell setBackgroundColor:[UIColor clearColor]];
+            [[(UserTableViewCell *)cell text] setBackgroundColor:[UIColor clearColor]];
+        }
     }
 }
 
@@ -373,7 +382,7 @@
             }
         }
     }
-    
+   
     [self.tableView reloadData];
 }
 

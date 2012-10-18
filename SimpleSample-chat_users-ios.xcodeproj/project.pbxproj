@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43043A7B162FECB700B629E5 /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43043A7A162FECB700B629E5 /* Quickblox.framework */; };
 		4320FA7F1608B85E0053529B /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4320FA7D1608B85E0053529B /* ChatViewController.m */; };
 		4320FA881608B95A0053529B /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4320FA871608B95A0053529B /* ChatViewController.xib */; };
 		4320FA981608BC140053529B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4320FA961608BC140053529B /* LoginViewController.m */; };
@@ -41,7 +42,6 @@
 		43774BE8160893D500DDBF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43774BE6160893D500DDBF12 /* InfoPlist.strings */; };
 		43774BEA160893D500DDBF12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43774BE9160893D500DDBF12 /* main.m */; };
 		43774BEE160893D500DDBF12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43774BED160893D500DDBF12 /* AppDelegate.m */; };
-		438E55D8162411FA00235A0D /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E55D7162411FA00235A0D /* Quickblox.framework */; };
 		43EB039F1609BC2000A330FB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EB039E1609BC2000A330FB /* pin.png */; };
 		43EB46A816241D4F00A88FF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EB46A716241D4F00A88FF1 /* Default-568h@2x.png */; };
 		FAC54D3A1616FA0300A12A20 /* ChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC54D391616FA0300A12A20 /* ChatMessageTableViewCell.m */; };
@@ -54,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43043A7A162FECB700B629E5 /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
 		4320FA7C1608B85E0053529B /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		4320FA7D1608B85E0053529B /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		4320FA871608B95A0053529B /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -96,7 +97,6 @@
 		43774BEB160893D500DDBF12 /* SimpleSample-chat_users-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleSample-chat_users-ios-Prefix.pch"; sourceTree = "<group>"; };
 		43774BEC160893D500DDBF12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		43774BED160893D500DDBF12 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		438E55D7162411FA00235A0D /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
 		43EB039E1609BC2000A330FB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		43EB46A716241D4F00A88FF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FAC54D381616FA0300A12A20 /* ChatMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageTableViewCell.h; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				43774BDE160893D500DDBF12 /* UIKit.framework in Frameworks */,
 				43774BE0160893D500DDBF12 /* Foundation.framework in Frameworks */,
 				43774BE2160893D500DDBF12 /* CoreGraphics.framework in Frameworks */,
-				438E55D8162411FA00235A0D /* Quickblox.framework in Frameworks */,
+				43043A7B162FECB700B629E5 /* Quickblox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,7 @@
 		43774BDC160893D500DDBF12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				438E55D7162411FA00235A0D /* Quickblox.framework */,
+				43043A7A162FECB700B629E5 /* Quickblox.framework */,
 				434E9CD61608A06F00A4FB2D /* CoreData.framework */,
 				434E9CD41608A06300A4FB2D /* CoreLocation.framework */,
 				434E9CD21608A05800A4FB2D /* MobileCoreServices.framework */,

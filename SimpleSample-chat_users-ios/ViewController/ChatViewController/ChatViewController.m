@@ -42,6 +42,9 @@
         
         // load history
         messages = [[[DataManager shared] chatHistoryWithOpponentID:self.opponent.ID] retain];
+        
+        NSLog(@"q");
+        
         if(messages == nil){
             messages = [[NSMutableArray alloc] init];
         }
@@ -319,7 +322,7 @@ static CGFloat padding = 20.0;
     
     // save message to cache if this 1-1 chat
     if (self.opponent) {
-        [[DataManager shared] saveMessage:[NSKeyedArchiver archivedDataWithRootObject:message]
+        [[DataManager shared] saveMessage:[NSKeyedArchiver archivedDataWithRootObject:messages]
                   toHistoryWithOpponentID:self.opponent.ID];
     }
     
