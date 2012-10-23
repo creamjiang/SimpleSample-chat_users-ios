@@ -341,12 +341,6 @@ static CGFloat padding = 20.0;
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[messages count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
-// Fired when you did enter to room
-- (void)chatRoomDidEnter:(NSString *)roomName{
-    NSLog(@"Chat Controller chatRoomDidEnter");
-}
-
-
 // Fired when you did leave room
 - (void)chatRoomDidLeave:(NSString *)roomName{
     NSLog(@"Chat Controller chatRoomDidLeave");

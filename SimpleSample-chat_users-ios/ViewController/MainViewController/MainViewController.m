@@ -231,12 +231,6 @@
         
         // Join room
         [selectedRoom joinRoom];
-        
-        // Show Chat view controller
-        ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
-        [chatViewController setTitle:[selectedRoom name]];
-        [chatViewController setCurrentRoom:selectedRoom];
-        [self.navigationController pushViewController:chatViewController animated:YES];
 
     // Mark/unmark users
     }else {
@@ -419,7 +413,7 @@
             }
             
             // Create room
-            [[QBChat instance] createRoomWithName:roomName];
+            [[QBChat instance] createPrivateRoomWithName:roomName];
         }
     }
 }
@@ -458,7 +452,6 @@
     for(QBUUser *user in [[DataManager shared] users]){
         if(message.senderID == user.ID && ![self.senderUsers containsObject:user]){
             [self.senderUsers addObject:user];
-            NSLog(@"\n\n\n\t\t\t chatDidReceiveMessage senderUsers -> %@\n\n\n", senderUsers);
             [self.tableView reloadData];
         }
     }
@@ -516,8 +509,33 @@
 // Fired when you did enter to room
 - (void)chatRoomDidEnter:(NSString *)roomName{
     NSLog(@"Main Controller chatRoomDidEnter");
+    
+    roomName = [[NSArray arrayWithArray:[roomName componentsSeparatedByString:@"@"]] objectAtIndex:0];
+    
+    for(QBChatRoom *selectedRoom in [DataManager shared].rooms){
+        if([selectedRoom.name isEqualToString:roomName]){
+            
+            // Show Chat view controller
+            ChatViewController *chatViewController = [[[ChatViewController alloc] init] autorelease];
+            [chatViewController setTitle:[selectedRoom name]];
+            [chatViewController setCurrentRoom:selectedRoom];
+            [self.navigationController pushViewController:chatViewController animated:YES];
+        }
+    }
 }
 
+// Fired when you did not enter to room
+- (void)chatRoomDidNotEnter:(NSError *)error{
+    
+    NSLog(@"Main Controller chatRoomDidNotEnter");
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:[error domain]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Okay"
+                                          otherButtonTitles:nil, nil];
+    [alert show];
+    [alert release];
+}
 
 // Fired when you did leave room
 - (void)chatRoomDidLeave:(NSString *)roomName{

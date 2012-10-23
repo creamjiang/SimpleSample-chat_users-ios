@@ -96,6 +96,8 @@ typedef enum QBChatServiceError {
  */
 - (void)createRoomWithName:(NSString *)name;
 
+- (void)createPrivateRoomWithName:(NSString *)name;
+
 /**
  Join room.
  */
