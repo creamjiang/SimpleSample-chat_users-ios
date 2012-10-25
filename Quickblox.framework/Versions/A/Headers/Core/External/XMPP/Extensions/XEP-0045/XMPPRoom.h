@@ -56,7 +56,7 @@
 
 - (void)xmppRoomDidCreate:(XMPPRoom *)sender;
 - (void)xmppRoomDidEnter:(XMPPRoom *)sender;
-- (void)xmppRoomDidNotEnter:(NSError *)error;
+- (void)xmppRoomDidNotEnter:(XMPPRoom *)sender error:(NSError *)error;
 - (void)xmppRoomDidLeave:(XMPPRoom *)sender;
 - (void)xmppRoom:(XMPPRoom *)sender didReceiveMessage:(XMPPMessage *)message fromNick:(NSString *)nick;
 - (void)xmppRoom:(XMPPRoom *)sender didChangeOccupants:(NSDictionary *)occupants;

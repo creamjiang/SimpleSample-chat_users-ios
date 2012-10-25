@@ -264,9 +264,4 @@
 + (NSObject<Cancelable>*)TDownloadFileWithBlobID:(NSUInteger)blobID delegate:(NSObject<QBActionStatusDelegate>*)delegate;
 + (NSObject<Cancelable>*)TDownloadFileWithBlobID:(NSUInteger)blobID delegate:(NSObject<QBActionStatusDelegate>*)delegate context:(void *)context;
 
-
-
-#pragma mark Deprecated
-+ (QBCFileResult *)downloadFileSyncWithUID:(NSString*)blobUID;
-
 @end

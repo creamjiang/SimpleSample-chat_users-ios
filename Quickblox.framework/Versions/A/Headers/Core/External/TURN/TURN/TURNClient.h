@@ -21,9 +21,9 @@
 // TURN default port
 #define TURNPort 3478
 
-// TURN server. See http://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT for setup your own or use free. In this example we use 'Numb' free STUN/TURN server.
+// TURN server. See http://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT for setup your own or use free. 
 
-#define TURNServer @"turn.quickblox.com"
+#define TURNServer @"turn2.quickblox.com"
 
 #define allocatedIPKey @"allocatedIPKey"
 #define allocatedPortKey @"allocatedPortKey"
@@ -32,13 +32,21 @@
 #define publicNatIPKey @"publicNatIPKey"
 #define publicNatPortKey @"publicNatPortKey"
 
+// Enable/disable auth (some TURN servers use auth, in some we can disable it)
+#define authEnable YES
+
+// Enable/disable log
 #define log 1
 #define TURNLog(...) if (log) NSLog(__VA_ARGS__)
-
 
 @protocol TURNClientDelegate;
 @interface TURNClient : NSObject <GCDAsyncUdpSocketDelegate, GCDAsyncSocketDelegate>{
     NSData *magicCookie;
+    
+    NSData *NONCE;
+    NSData *REALM;
+    NSData *USERNAME;
+    NSData *MESSAGE_INTEGRITY;
 }
 @property (nonatomic, retain) GCDAsyncUdpSocket *udpSocket;
 @property (nonatomic, retain) GCDAsyncSocket *tcpSocket;
@@ -53,7 +61,7 @@
 //
 // over TCP
 - (void)sendAllocationRequestTCP;
-- (void)sendPermissionRequestTCPWithPeer:(NSData *)peer;
+- (void)sendConnectRequestTCPWithPeer:(NSData *)peer;
 - (void)sendRefreshRequestTCP;
 
 // STUN
@@ -88,5 +96,6 @@ enum TURNResponseType{
 - (void)didReceiveBindingResponse:(NSDictionary *) data;
 - (void)didReceivePermissionResponse;
 - (void)didReceiveData:(NSData *) data;
+- (void)didFailWithError:(NSString *) error code:(int)errorCode;
 - (void)didConnectToTURNServerUsingTCP;
 @end

@@ -525,10 +525,8 @@
 }
 
 // Fired when you did not enter to room
-- (void)chatRoomDidNotEnter:(NSError *)error{
-    
-    NSLog(@"Main Controller chatRoomDidNotEnter");
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error"
+- (void)chatRoomDidNotEnter:(NSString *)roomName error:(NSError *)error{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@, error:", roomName]
                                                     message:[error domain]
                                                    delegate:nil
                                           cancelButtonTitle:@"Okay"

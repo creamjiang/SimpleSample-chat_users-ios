@@ -54,7 +54,7 @@ typedef enum {
     NotReachable = 0,
     ReachableViaWiFi,
     ReachableViaWWAN
-} NetworkStatus;
+} QBNetworkStatus;
 #define kReachabilityChangedNotification @"kNetworkReachabilityChangedNotification"
 
 @interface QBReachability: NSObject
@@ -80,7 +80,7 @@ typedef enum {
 - (BOOL) startNotifier;
 - (void) stopNotifier;
 
-- (NetworkStatus) currentReachabilityStatus;
+- (QBNetworkStatus) currentReachabilityStatus;
 //WWAN may be available, but not active until a connection has been established.
 //WiFi may require a connection for VPN on Demand.
 - (BOOL) connectionRequired;

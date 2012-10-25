@@ -77,9 +77,9 @@
 - (void)chatRoomDidEnter:(NSString *)roomName;
 
 /**
- Called when you did't enter to room
+ Called when you didn't enter to room
  */
-- (void)chatRoomDidNotEnter:(NSError *)error;
+- (void)chatRoomDidNotEnter:(NSString *)roomName error:(NSError *)error;
 
 /**
  Fired when you did leave room

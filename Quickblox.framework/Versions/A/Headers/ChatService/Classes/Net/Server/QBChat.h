@@ -92,10 +92,13 @@ typedef enum QBChatServiceError {
 #pragma mark Rooms
 
 /**
- Create room.
+ Create public room
  */
 - (void)createRoomWithName:(NSString *)name;
 
+/**
+ Create private room (only members)
+ */
 - (void)createPrivateRoomWithName:(NSString *)name;
 
 /**

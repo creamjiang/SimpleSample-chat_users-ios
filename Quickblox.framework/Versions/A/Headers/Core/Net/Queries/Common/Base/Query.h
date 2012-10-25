@@ -34,8 +34,4 @@
 - (void)setShouldRedirect:(RestRequest*)request;
 - (void)finishedSuccess;
 
-#pragma mark Deprecated
--(Result *)perform;
-- (RestRequest*)request;
-
 @end
