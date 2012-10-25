@@ -34,6 +34,7 @@
 		434E9CD31608A05800A4FB2D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434E9CD21608A05800A4FB2D /* MobileCoreServices.framework */; };
 		434E9CD51608A06300A4FB2D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434E9CD41608A06300A4FB2D /* CoreLocation.framework */; };
 		434E9CD71608A06F00A4FB2D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434E9CD61608A06F00A4FB2D /* CoreData.framework */; };
+		4365117B163987E900DCDBED /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4365117A163987E900DCDBED /* Quickblox.framework */; };
 		4374372F160C5E93006BAFCF /* room-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4374372E160C5E93006BAFCF /* room-icon.png */; };
 		43774BDE160893D500DDBF12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43774BDD160893D500DDBF12 /* UIKit.framework */; };
 		43774BE0160893D500DDBF12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43774BDF160893D500DDBF12 /* Foundation.framework */; };
@@ -50,7 +51,6 @@
 		FAC54D6216170C3200A12A20 /* sendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC54D6016170C3200A12A20 /* sendButton@2x.png */; };
 		FAC54D8D161746D200A12A20 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC54D8C161746D200A12A20 /* RegistrationViewController.m */; };
 		FAC54D8F161748AE00A12A20 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC54D8E161748AE00A12A20 /* RegistrationViewController.xib */; };
-		FAFA5910163975E700805002 /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFA590F163975E700805002 /* Quickblox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +85,7 @@
 		434E9CD21608A05800A4FB2D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		434E9CD41608A06300A4FB2D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		434E9CD61608A06F00A4FB2D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4365117A163987E900DCDBED /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
 		4374372E160C5E93006BAFCF /* room-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "room-icon.png"; sourceTree = "<group>"; };
 		43774BD9160893D500DDBF12 /* SimpleSample-chat_users-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SimpleSample-chat_users-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43774BDD160893D500DDBF12 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -109,7 +110,6 @@
 		FAC54D8B161746D200A12A20 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		FAC54D8C161746D200A12A20 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		FAC54D8E161748AE00A12A20 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
-		FAFA590F163975E700805002 /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				43774BDE160893D500DDBF12 /* UIKit.framework in Frameworks */,
 				43774BE0160893D500DDBF12 /* Foundation.framework in Frameworks */,
 				43774BE2160893D500DDBF12 /* CoreGraphics.framework in Frameworks */,
-				FAFA5910163975E700805002 /* Quickblox.framework in Frameworks */,
+				4365117B163987E900DCDBED /* Quickblox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,7 @@
 		43774BDC160893D500DDBF12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FAFA590F163975E700805002 /* Quickblox.framework */,
+				4365117A163987E900DCDBED /* Quickblox.framework */,
 				434E9CD61608A06F00A4FB2D /* CoreData.framework */,
 				434E9CD41608A06300A4FB2D /* CoreLocation.framework */,
 				434E9CD21608A05800A4FB2D /* MobileCoreServices.framework */,
