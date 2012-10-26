@@ -239,9 +239,14 @@
         if([self.senderUsers containsObject:selectedUser]){
             [self.senderUsers removeObject:selectedUser];
             [self.tableView reloadData];
-        }
-        
-        if(![self.selectedUsers containsObject:selectedUser]){
+            ChatViewController *chatViewController = [[ChatViewController alloc] init];
+            [self.selectedUsers removeAllObjects];
+            [self.senderUsers removeAllObjects];
+            [chatViewController setTitle:selectedUser.login ? selectedUser.login : selectedUser.fullName];
+            [chatViewController setOpponent:selectedUser];
+            [self.navigationController pushViewController:chatViewController animated:YES];
+            [chatViewController release];
+        }else if(![self.selectedUsers containsObject:selectedUser]){
             [self.selectedUsers addObject:selectedUser];
             [self.tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
         }else{
@@ -453,6 +458,15 @@
         if(message.senderID == user.ID && ![self.senderUsers containsObject:user]){
             [self.senderUsers addObject:user];
             [self.tableView reloadData];
+            NSMutableArray *messages = [[NSMutableArray alloc] init];
+            if([[DataManager shared] chatHistoryWithOpponentID:message.senderID]){
+                [messages addObjectsFromArray:[[[DataManager shared] chatHistoryWithOpponentID:message.senderID] retain]];
+            }
+            
+            [messages addObject:message];
+            [[DataManager shared] saveMessage:[NSKeyedArchiver archivedDataWithRootObject:messages]
+                      toHistoryWithOpponentID:message.senderID];
+            [messages release];
         }
     }
     
